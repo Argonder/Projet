@@ -6,18 +6,16 @@
  * Time: 12:11
  */
 namespace App\Controller;
-use Symfony\Component\HttpFoundation\Response;
-class LuckyController
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use Symfony\component\Routing\Annotation\Route;
+
+class LuckyController extends Controller
 {
 
-    public function number()
-    {
-        $number = 10;
+    public function affichage() {
+        return $this->render('accueil.html.twig', [
 
-        return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
-        );
+        ]);
     }
-
-
-}
+    }
