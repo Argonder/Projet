@@ -9,7 +9,18 @@
         {% endblock %}
     </head>
     <body>
-
+        <header>
+            <nav class="navbar navbar-default">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Titre</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
 
         {% block javascripts %}
