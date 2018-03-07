@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Perline{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styleslider.css">
@@ -11,15 +11,21 @@
     {% endblock %}
 </head>
 <body>
-<header>
+<header class="container">
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
-            <li><a href="#">Titre</a></li>
+            <li><a href="accueil">Perline et ses Copines</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
+<<<<<<< HEAD
             <li><a href="#">Accueil</a></li>
             <li><a href="#">Articles</a></li>
             <li><a href="contact">Contact</a></li>
+=======
+            <li><a href="accueil">Accueil</a></li>
+            <li><a href="articles">Articles</a></li>
+            <li><a href="#">Contact</a></li>
+>>>>>>> Yann
         </ul>
     </nav>
 </header>
@@ -28,7 +34,7 @@
 
 <footer>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row positionnement">
             <div class="col-md-4 text-center">
                 <p>Suivez moi sur :</p>
                 <i class="fa fa-facebook"></i>
