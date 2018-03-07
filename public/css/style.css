@@ -1,5 +1,18 @@
+/* MENU */
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-    color: #777;
+    color: #FFFFFF;
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.77);
+
+}
+
+.navbar-default .navbar-nav > li > a{
+    color: #ffffff;
+}
+
+header .navbar-default {
     background-color: transparent;
 }
 
@@ -13,12 +26,17 @@
 }
 
 .pull-right li{
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .pull-right li:hover{
     background-color: #EEEEEE;
-    transition: 0.5s;
+    transition: 1.5s;
+    opacity: 0.6;
+}
+
+.navbar-default .pull-right > li > a:hover{
+    color:#000000;
 }
 
 .navbar-default {
@@ -34,7 +52,6 @@
 }
 
 .contact {
-    border-top: solid 2px black;
     text-align: center;
 }
 
@@ -55,6 +72,7 @@
     margin-left: 15px;
 }
 
+/*FOOTER */
 footer{
     box-shadow: 0 -8px 8px 1px #0000001a;
 }
