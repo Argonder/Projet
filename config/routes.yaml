@@ -1,3 +1,7 @@
 app_lucky_number:
     path: /accueil
     controller: App\Controller\LuckyController::affichage
+
+app_articles:
+    path: /articles
+    controller: App\Controller\ArticlesController::affichage
