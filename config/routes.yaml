@@ -3,6 +3,7 @@ app_lucky_number:
     controller: App\Controller\LuckyController::affichage
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 app_contact:
      path: /contact
      controller: App\Controller\contactController::affichage
@@ -11,3 +12,8 @@ app_articles:
     path: /articles
     controller: App\Controller\ArticlesController::affichage
 >>>>>>> Yann
+=======
+app_admin:
+    path: /admin
+    controller: App\Controller\AdminController::yo
+>>>>>>> Jr
