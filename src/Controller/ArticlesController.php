@@ -9,13 +9,16 @@
 namespace App\Controller;
 
 
+use Doctrine\DBAL\Connection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticlesController extends Controller
 {
-    public function affichage() {
-        return $this->render('articles.html.twig', [
+    public function affichage(Connection $db) {
 
+        dump($db->fetchAll('SELECT * from article'));
+        return $this->render('articles.html.twig', [
         ]);
+
     }
 }
