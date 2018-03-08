@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="app_users")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements UserInterface
 {
     /**
      * @ORM\Column(type="integer")
@@ -49,6 +49,15 @@ class User implements UserInterface, \Serializable
         return $this->username;
     }
 
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+
     public function getSalt()
     {
         // you *may* need a real salt depending on your encoder
@@ -61,6 +70,15 @@ class User implements UserInterface, \Serializable
         return $this->password;
     }
 
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+
     public function getRoles()
     {
         return array('ROLE_USER');
@@ -70,27 +88,22 @@ class User implements UserInterface, \Serializable
     {
     }
 
-    /** @see \Serializable::serialize() */
-    public function serialize()
+    /**
+     * @return mixed
+     */
+    public function getEmail()
     {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt,
-        ));
+        return $this->email;
     }
 
-    /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
     {
-        list (
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt
-            ) = unserialize($serialized);
+        $this->email = $email;
     }
+
+
+
 }

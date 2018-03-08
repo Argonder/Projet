@@ -13,7 +13,7 @@ app_articles:
 
 app_admin:
     path: /admin
-    controller: App\Controller\AdminController::yo
+    controller: App\Controller\AdminController::admin
 
 logout:
     path: /logout

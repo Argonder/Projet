@@ -14,7 +14,7 @@ use Symfony\component\Routing\Annotation\Route;
 
     class AdminController extends controller
     {
-        public function yo() {
+        public function admin() {
             return $this->render('admin.html.twig', [
 
             ]);
