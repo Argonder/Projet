@@ -15,3 +15,8 @@ app_admin:
     path: /admin
     controller: App\Controller\AdminController::yo
 
+
+app_slider:
+    path: /slider
+    controller: App\Controller\sliderController::index
+
