@@ -8,7 +8,7 @@ app_contact:
 
 app_articles:
     path: /articles
-    controller: App\Controller\ArticlesController::affichage
+    controller: App\Controller\ArticlesController::article
 
 
 app_admin:

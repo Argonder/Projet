@@ -14,10 +14,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticlesController extends Controller
 {
-    public function affichage(Connection $db) {
+    public function article(Connection $db) {
 
-        dump($db->fetchAll('SELECT * from article'));
-        return $this->render('articles.html.twig', [
+        /*dump($db->fetchAll('SELECT * from article'));*/
+        $articles = $db->fetchAll('SELECT * from article');
+        return $this->render('articles.html.twig', ['articles' => $articles
         ]);
 
     }

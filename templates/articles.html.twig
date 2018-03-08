@@ -8,15 +8,14 @@
         <p>description de l'objet</p>
     </div>
 
-    <div class="col-md-6 col-sm-6">
-        <h2>titre Article</h2>
-        <p>blablababalabla</p>
+    {% for article in articles %}
+    <div class=" articleMove col-md-6 col-sm-6">
+        <h2>{{ article.titre_article }}</h2>
+        <img class="img-responsive" src="{{ article.image }}" alt="{{ article.titre_article }}">
+        <p>{{ article.description }}</p>
     </div>
+    {% endfor %}
 
-    <div class="col-md-6 col-sm-6">
-        <h2>titre Article</h2>
-        <p>blablalbalbla</p>
-    </div>
 
 </div>
 
