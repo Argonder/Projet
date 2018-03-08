@@ -36,10 +36,4 @@ class sliderController extends Controller
 
         return new Response('Saved new product with id '.$slider->getId());
     }
-
-    public function slider(Connection $db)
-    {
-        $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
-        return $this->render('articles.html.twig', ['slider' => $slider]);
-    }
 }

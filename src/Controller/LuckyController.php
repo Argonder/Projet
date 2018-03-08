@@ -12,15 +12,11 @@ use Doctrine\DBAL\Connection;
 class LuckyController extends Controller
 {
 
-    public function affichage() {
-        return $this->render('accueil.html.twig', [
+    public function affichage(Connection $db) {
 
-        ]);
-    }
-    public function slider(Connection $db)
-    {
         $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
-        return $this->render('slider.html.twig', ['slider' => $slider]);
 
+
+        return $this->render('accueil.html.twig', ['slider' => $slider]);
     }
 }
