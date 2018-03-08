@@ -1,6 +1,6 @@
 app_lucky_number:
     path: /accueil
-    controller: App\Controller\LuckyController::affichage
+    controller: App\Controller\LuckyController::slider
 
 app_contact:
      path: /contact
@@ -16,7 +16,10 @@ app_admin:
     controller: App\Controller\AdminController::yo
 
 
+app_sliderinsert:
+    path: /slider
+    controller: App\Controller\sliderController::insertslider
+
 app_slider:
     path: /slider
-    controller: App\Controller\sliderController::index
-
+    controller: App\Controller\sliderController::slider

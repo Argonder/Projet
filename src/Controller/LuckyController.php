@@ -7,8 +7,7 @@
  */
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Symfony\component\Routing\Annotation\Route;
+use Doctrine\DBAL\Connection;
 
 class LuckyController extends Controller
 {
@@ -18,4 +17,10 @@ class LuckyController extends Controller
 
         ]);
     }
+    public function slider(Connection $db)
+    {
+        $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
+        return $this->render('slider.html.twig', ['slider' => $slider]);
+
     }
+}

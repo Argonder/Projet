@@ -11,19 +11,21 @@ namespace App\Controller ;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Slider;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\DBAL\Connection;
 
 class sliderController extends Controller
 {
 
-    public function index()
+    public function insertslider()
     {
         // you can fetch the EntityManager via $this->getDoctrine()
         // or you can add an argument to your action: index(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
 
         $slider = new Slider();
-        $slider->setLibelle('test');
-        $slider->setImage("test");
+        $slider->setLibelle('plumes');
+        $slider->setImage("images/plumes.jpg");
+        $slider->setActive(1);
 
 
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
@@ -33,5 +35,11 @@ class sliderController extends Controller
         $entityManager->flush();
 
         return new Response('Saved new product with id '.$slider->getId());
+    }
+
+    public function slider(Connection $db)
+    {
+        $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
+        return $this->render('articles.html.twig', ['slider' => $slider]);
     }
 }

@@ -27,6 +27,11 @@ class Slider
     private $image;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -43,28 +48,45 @@ class Slider
     }
 
     /**
- * @return mixed
- */
-public function getLibelle()
-{
-    return $this->libelle;
-}/**
+     * @return mixed
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }/**
  * @param mixed $libelle
  */
-public function setLibelle($libelle)
-{
-    $this->libelle = $libelle;
-}/**
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+    }/**
  * @return mixed
  */
-public function getImage()
-{
-    return $this->image;
-}/**
+    public function getImage()
+    {
+        return $this->image;
+    }/**
  * @param mixed $image
  */
-public function setImage($image)
-{
-    $this->image = $image;
-}
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+
 }
