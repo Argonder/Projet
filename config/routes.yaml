@@ -11,9 +11,13 @@ app_articles:
     controller: App\Controller\ArticlesController::affichage
 
 
+login:
+    path: /login
+    controller: App\Controller\AdminController::login
+
 app_admin:
-    path: /admin
-    controller: App\Controller\AdminController::admin
+  path: /admin
+  controller: App\Controller\AdminController::admin
 
 logout:
     path: /logout
