@@ -11,15 +11,22 @@ app_articles:
     controller: App\Controller\ArticlesController::article
 
 
+login:
+    path: /login
+    controller: App\Controller\AdminController::login
+
 app_admin:
-    path: /admin
-    controller: App\Controller\AdminController::yo
+  path: /admin
+  controller: App\Controller\AdminController::admin
+
 
 
 app_sliderinsert:
     path: /slider
     controller: App\Controller\sliderController::insertslider
 
-app_slider:
-    path: /slider
-    controller: App\Controller\sliderController::slider
+
+
+logout:
+    path: /logout
+
