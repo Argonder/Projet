@@ -15,3 +15,11 @@ app_admin:
     path: /admin
     controller: App\Controller\AdminController::yo
 
+
+app_sliderinsert:
+    path: /slider
+    controller: App\Controller\sliderController::insertslider
+
+app_slider:
+    path: /slider
+    controller: App\Controller\sliderController::slider

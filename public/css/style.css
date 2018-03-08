@@ -1,5 +1,18 @@
+/* MENU */
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-    color: #777;
+    color: #FFFFFF;
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.77);
+
+}
+
+.navbar-default .navbar-nav > li > a{
+    color: #ffffff;
+}
+
+header .navbar-default {
     background-color: transparent;
 }
 
@@ -8,12 +21,58 @@
     border-radius: 0;
 }
 
+.pull-right{
+    height: 20px;
+}
+
+.pull-right li{
+    border-radius: 12px;
+}
+
+.pull-right li:hover{
+    background-color: #EEEEEE;
+    transition: 1.5s;
+    opacity: 0.6;
+}
+
+.navbar-default .pull-right > li > a:hover{
+    color:#000000;
+}
+
 .navbar-default {
     background-color: #ffffff;
     border-color: #e7e7e7;
     border: none;
 }
 
+/* CONTACT FORMULAIRE */
+#email_span:hover {
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.contact {
+    text-align: center;
+}
+
+.form-contact {
+    margin:50px 0;
+}
+
+.form-contact .btn-envoi {
+    margin-top: 50px;
+    margin-left: 90%;
+}
+
+.form-contact .form-inline {
+    margin-bottom: 50px;
+}
+
+.form-inline .email-form {
+    margin-left: 15px;
+}
+
+/*FOOTER */
 footer{
     box-shadow: 0 -8px 8px 1px #0000001a;
 }

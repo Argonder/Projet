@@ -1,29 +1,29 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
     <div id="slider"> <!-- Debut carousel -->
 
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicateurs -->
+            <!-- Indicateurs
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
+            </ol>-->
 
             <!-- slides -->
+
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="images/elephants.jpg" alt="boucle oreille 1">
+                    <img src="" alt="">
+                    <div class="carousel-caption">
+                    </div>
                 </div>
-
-                <div class="item">
-                    <img src="images/hiboux.jpg" alt="boucle oreille 2">
-                </div>
-
-                <div class="item">
-                    <img src="images/plumes.jpg" alt="boucle oreille 3">
-                </div>
-
+                {% for slider in slider %}
+                    <div class="item">
+                        <img src="{{ slider.image }}" alt="{{ slider.libelle }}">
+                    </div>
+                {% endfor %}
             </div>
 
             <!-- Control -->
@@ -38,11 +38,6 @@
         </div>
 
     </div><!-- Fin carousel -->
-
-    <div id="slider">
-
-    </div>
-
     <div class="Presentation text-center"> <h1> Qui suis-je ? </h1>
         <p> Contenu article </p>
 

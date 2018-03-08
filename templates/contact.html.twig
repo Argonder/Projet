@@ -2,34 +2,36 @@
 
 {% block body %}
     <div class="container">
-        <h2>Contact</h2>
-        <p> Contactez-moi par téléphone au: 00.00.00.00 <br>
-        ou par email au: test@email.com
-        </p>
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>
+                <i class="fa fa-phone"></i> 00.00.00.00 <br>
+                <i class="fa fa-envelope"></i> <span id="email_span">test@email.com</span>
+            </p>
 
-        <form class="form-contact">
-            <div class="form-inline">
-                <div class="form-group">
-                    <label for="nom">Name</label>
-                    <input type="text" class="form-control" id="nom" placeholder="Jane Doe">
-                </div>
+            <form class="form-contact">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="nom">Name</label>
+                        <input type="text" class="form-control" id="nom" placeholder="Jane Doe">
+                    </div>
 
-                <div class="form-group">
-                    <label for="eamil">Email</label>
-                    <input type="email" class="form-control" id="eamil" placeholder="jane.doe@example.com">
-                </div>
-            </div>
-
-            <div class="form-horizontal">
-                <textarea class="form-control " type="text" rows="5" placeholder="message..."></textarea>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button  type="submit" class="btn btn-default">Sign in</button>
+                    <div class="form-group email-form">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="jane.doe@example.com" required>
                     </div>
                 </div>
-            </div>
-        </form>
 
+                <div class="form-horizontal">
+                    <textarea class="form-control" type="text" rows="5" placeholder="message..."></textarea>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button  type="submit" class="btn btn-default btn-envoi">Envoyer</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
 {% endblock %}

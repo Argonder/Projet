@@ -7,15 +7,16 @@
  */
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Symfony\component\Routing\Annotation\Route;
+use Doctrine\DBAL\Connection;
 
 class LuckyController extends Controller
 {
 
-    public function affichage() {
-        return $this->render('accueil.html.twig', [
+    public function affichage(Connection $db) {
 
-        ]);
+        $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
+
+
+        return $this->render('accueil.html.twig', ['slider' => $slider]);
     }
-    }
+}

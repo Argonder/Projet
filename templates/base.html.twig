@@ -14,25 +14,29 @@
     {% endblock %}
 </head>
 <body>
-<header class="container">
-    <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav">
-            <li><a href="accueil">Perline et ses Copines</a></li>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
+<header>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li><a href="accueil">Perline et ses Copines</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
 
 
 
-            <li><a href="accueil">Accueil</a></li>
-            <li><a href="articles">Articles</a></li>
-            <li><a href="contact">Contact</a></li>
+                <li><a href="accueil">Accueil</a></li>
+                <li><a href="articles">Articles</a></li>
+                <li><a href="contact">Contact</a></li>
 
 
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-{% block body %}{% endblock %}
+{% block body %}
+
+{% endblock %}
 
 <footer>
     <div class="container-fluid">
@@ -56,6 +60,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 {% endblock %}
 </body>
 </html>
