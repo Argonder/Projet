@@ -44,6 +44,11 @@ header .navbar-default {
     border-color: #e7e7e7;
     border: none;
 }
+/* Accueil */
+.article-h img {
+    height: 150px;
+}
+/* FIN ACCUEIL */
 
 /* CONTACT FORMULAIRE */
 #email_span:hover {
