@@ -25,6 +25,11 @@ app_sliderinsert:
     path: /slider
     controller: App\Controller\sliderController::insertslider
 
+app_addarticle:
+  path: /admin/article/ajouter
+  controller: App\Controller\AdminController::insertarticle
+
+
 
 
 logout:
