@@ -1,8 +1,15 @@
 {%  extends 'base-admin.html.twig' %}
 
-{% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="btn btn-warning" value="publier">Envoyer</button>
-    {{ form_end(form) }}
-{%  endblock %}
+   {% block body %}
+       <div class="container">
+
+         <h3>Ajouter une image dans le slider</h3>
+         <div class="form-inline">
+           <!-- FORMULAIRE -->
+           {{ form_start(form) }}
+           {{ form_widget(form) }}
+           <button type="submit" class="btn btn-warning" value="publier">Envoyer</button>
+           {{ form_end(form) }}
+         </div>
+       </div>
+   {% endblock %}

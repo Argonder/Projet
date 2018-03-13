@@ -60,17 +60,16 @@ class AdminController extends Controller
             ->add('libelle', TextType::class, [
                 'required'  => false,
                 'label'     => false,
-                'constraints' => [new NotBlank()],
                 'attr'      => [
                     'name'  => 'libelle',
                     'class' => 'form-control' ,
-                    'placeholder' => 'titre de l\'image...'
+                    'placeholder' => 'titre'
                 ]
             ])
 
             ->add('image', FileType::class, [
                 'required'   => true ,
-                'label'     => false ,
+                'label'     => 'Importer un fichier' ,
                 'attr'     => [
                     'name'  => 'image',
                     'class'   => 'dropify'
@@ -79,7 +78,7 @@ class AdminController extends Controller
 
             ->add('active', CheckBoxType::class,[
                 'required'  => false,
-                'label'     => false,
+                'label'     => 'Activé l\'image ',
                 'attr'      => [
                     'name'  => 'active',
                     'class' => 'form-control' ,
