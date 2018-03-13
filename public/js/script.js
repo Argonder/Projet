@@ -24,7 +24,6 @@ $(".btn-envoi").click(function() {
 
 //ARTICLES
 //au click changement class et move dans div
-var  article ;
 $(".articleMove").click( function() {
     //si l'article est déjà en principale
     if ( $(this).hasClass( "articlePrincipale")){
@@ -38,13 +37,6 @@ $(".articleMove").click( function() {
         $('.articleP').append(this);
     }
 });
-
-/*var articleMove = $('.articleMove').html();
-
-     function articlesMove(){
-        $('.articleMove').html();
-        $('.articlePrincipale').html(articleMove);
-     }*/
 
 
 //FIN ARTICLES
