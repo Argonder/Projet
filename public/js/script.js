@@ -1,3 +1,10 @@
+//HOMEPAGE //
+//cliquer sur les article à la une ouvre la page article
+$(".article-h").click( function(){
+    window.open('articles');
+});
+//FIN HOMEPAGE//
+
 //FORM CONTACT
 //formulaire de contact show
 $(".form-contact").hide();
@@ -44,3 +51,40 @@ $(".articleMove").click( function() {
 $("form").submit(function(){
     $("#form").append('<p>L\'image a été ajouté.</p>')
 })
+
+//FIN ADMIN
+
+//RESPONSIVE
+function resizePage()
+{
+    //inferieur à 750px
+    var Largeur = $(window).width();
+    if(Largeur < 750) {
+        $('.resp').show();
+        $('.navbar-default').hide();
+
+        //menu hamburger
+        $('.hamenu').hide();
+        $('.cross').hide()
+
+        $('.ham').click(function() {
+            $('.hamenu').show();
+            $('.ham').hide();
+            $('.cross').show()
+        })
+
+        $('.cross').click(function() {
+            $('.hamenu').hide();
+            $('.ham').show();
+            $('.cross').hide()
+        })
+
+    }else{
+        $('.resp').hide();
+        $('.navbar-default').show();
+    }
+};
+
+// Appel de la fonction
+$(window).resize(resizePage);
+resizePage();

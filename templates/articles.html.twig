@@ -1,16 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-<div class="container">
+<div class="container containerArticle">
 
     <div class="articleP">
 
     </div>
-
-
     <div class=" articleblock ">
         {% for article in articles %}
-        <div  class="articleMove col-sm-6">
+        <div  class="articleMove col-sm-4">
             <h3>{{ article.titre_article }}</h3>
             <img class="img-responsive" src="{{ article.image }}" alt="{{ article.titre_article }}">
             <p>{{ article.description }}</p>
