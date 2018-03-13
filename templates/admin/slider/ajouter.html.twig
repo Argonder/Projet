@@ -3,7 +3,18 @@
    {% block body %}
        <div class="container">
 
-         <h3>Ajouter une image dans le slider</h3>
+           <h3>Modifier le Slider</h3>
+           <!-- image deja presente dans le slider -->
+               <div class="row ">
+                   <div  class="col-sm-4 col-md-offset-4">
+                       {% for slider in product %}
+
+                               <img src="../../{{ slider.image }}" alt="{{ slider.libelle }}">
+
+                       {% endfor %}
+                   </div>
+               </div>
+         <h4>Ajouter une image dans le slider</h4>
          <div class="form-inline">
            <!-- FORMULAIRE -->
            {{ form_start(form) }}
@@ -12,4 +23,5 @@
            {{ form_end(form) }}
          </div>
        </div>
+
    {% endblock %}

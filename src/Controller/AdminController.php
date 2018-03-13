@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -56,9 +57,8 @@ class AdminController extends Controller
         $slider = new Slider();
         //creation du formulaire d'ajout
         $form = $this->createFormBuilder($slider)
-
             ->add('libelle', TextType::class, [
-                'required'  => false,
+                'required'  => true,
                 'label'     => false,
                 'attr'      => [
                     'name'  => 'libelle',
@@ -107,13 +107,12 @@ class AdminController extends Controller
             $entityManager->persist($slider);
             $entityManager->flush();
 
-            return $this->render('admin/slider/ajouter.html.twig',[
-                'form' =>$form->createView(), 'data'=>$form
-            ]);
         }
 
+        $repository = $this->getDoctrine()->getRepository(Slider::class);
+        $products = $repository->findBy(['active' => 1]);
         return $this->render('admin/slider/ajouter.html.twig',[
-            'form' =>$form->createView(), 'data'=>''
+            'form' =>$form->createView(), 'data'=>'','product' =>$products
         ]);
     }
 
@@ -142,14 +141,14 @@ class AdminController extends Controller
                 ]
             ])
             ->add('image', FileType::class, [
-                'required'   => false ,
+                'required'   => true ,
                 'label'     => false ,
                 'attr'     => [
                     'class'   => 'dropify'
                 ]
             ])
             ->add('date', DateType::class, [
-                'required'   => false ,
+                'required'   => true ,
                 'label'     => false ,
                 'attr'     => [
                     'class'   => 'dropify'
@@ -174,10 +173,6 @@ class AdminController extends Controller
             $entityManager->persist($article);
             $entityManager->flush();
 
-
-            return $this->render('admin/slider/ajouter.html.twig',[
-                'form' =>$form->createView(), 'data'=>$form
-            ]);
         }
 
         return $this->render('admin/article/ajouter.html.twig',[

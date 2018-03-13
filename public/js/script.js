@@ -37,6 +37,10 @@ $(".articleMove").click( function() {
         $('.articleP').append(this);
     }
 });
-
-
 //FIN ARTICLES
+
+//ADMIN SLIDER
+//message validation insertion
+$("form").submit(function(){
+    $("#form").append('<p>L\'image a été ajouté.</p>')
+})

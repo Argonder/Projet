@@ -181,8 +181,15 @@ footer{
     text-align:center;
     color: #333333;
 }
+.adminContainer h4{
+    margin-top:20px;
+}
 
-/*Formulaire*/
+/*SLIDER*/
+.adminContainer img{
+    height:80px;
+}
+
 .form-inline form #form label {
     margin-bottom: 10px;
     font-weight: 100;
