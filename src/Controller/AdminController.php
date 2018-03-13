@@ -8,17 +8,17 @@
 
 namespace App\Controller ;
 use App\Entity\Slider;
+use App\Entity\Article;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AdminController extends Controller
 {
@@ -85,7 +85,7 @@ class AdminController extends Controller
             ])
 
             ->getForm();
-        //$request = Request::createFromGlobals();
+
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $data = $form->getData();
@@ -124,7 +124,8 @@ class AdminController extends Controller
 
     public function insertarticle(Request $request)
     {
-        $form = $this->createFormBuilder()
+        $article = new Article();
+        $form = $this->createFormBuilder($article)
         ->add('titre_article', TextType::class, [
             'required'  => true,
             'label'     => false,
@@ -151,8 +152,39 @@ class AdminController extends Controller
                     'class'   => 'dropify'
                 ]
             ])
+            ->add('date', DateType::class, [
+                'required'   => false ,
+                'label'     => false ,
+                'attr'     => [
+                    'class'   => 'dropify'
+                ]
+            ])
         ->getForm();
         $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            $data = $form->getData();
+            $file = $form['image']->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $article = $form->getData();
+            $file = $article->getImage();
+
+            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+            // moves the file to the directory where brochures are stored
+            $file->move(
+                '../public/images/',
+                $fileName);
+            $article->setImage('images/'.$fileName);
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+
+            return $this->render('admin/slider/ajouter.html.twig',[
+                'form' =>$form->createView(), 'data'=>$form
+            ]);
+        }
+
+
 
         return $this->render('admin/article/ajouter.html.twig',[
             'form' =>$form->createView(), 'data'=>$form
