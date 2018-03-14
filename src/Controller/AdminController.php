@@ -91,8 +91,6 @@ class AdminController extends Controller
         $form->handleRequest($request);
         //insertion dans la BDD
         if ($form->isSubmitted()) {
-            $data = $form->getData();
-            $file = $form['image']->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $slider = $form->getData();
             $file = $slider->getImage();
