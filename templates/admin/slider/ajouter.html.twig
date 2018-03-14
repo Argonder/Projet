@@ -5,8 +5,13 @@
 
            <h3>Modifier le Slider</h3>
            <!-- image deja presente dans le slider -->
-               <div class="row imageactive">
-                   <div  class="col-sm-4 col-md-offset-4">
+           <btn class="ferm btn btn-default col-md-offset-4">fermer la gallerie</btn>
+               <div class="btn-imgslider btn btn-default col-md-offset-4">
+                   <p>Afficher les images enregistrées.</p>
+                   <btn></btn>
+               </div>
+               <div class="row imageslider">
+                   <div>
                        {% for slider in product %}
 
                                <img src="../../{{ slider.image }}" alt="{{ slider.libelle }}">

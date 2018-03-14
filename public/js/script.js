@@ -50,8 +50,21 @@ $(".articleMove").click( function() {
 //message validation insertion
 $("form").submit(function(){
     $("#form").append('<p>L\'image a été ajouté.</p>')
-})
-
+});
+//afficher images sliders
+$(".imageslider").hide();
+$(".ferm").hide();
+$(".btn-imgslider").click(function(){
+    $(".imageslider").show();
+    $(".btn-imgslider").hide();
+    $(".ferm").show();
+});
+//fermer la div
+$(".ferm").click(function(){
+    $(".imageslider").hide();
+    $(".btn-imgslider").show();
+    $(".ferm").hide();
+});
 //FIN ADMIN
 
 //RESPONSIVE

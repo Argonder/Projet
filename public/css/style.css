@@ -230,8 +230,7 @@ footer{
     margin-right: 30px;
     margin-top: 15px;
 }
-
-.form-inline form #form input {
-
+.ferm, .btn-imgslider{
+    margin-left:20%;
 }
 /* FIN ADMIN */
