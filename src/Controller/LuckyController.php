@@ -15,8 +15,10 @@ class LuckyController extends Controller
     public function affichage(Connection $db) {
 
         $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
+        $articles = $db->fetchAll('SELECT * from article ORDER BY date LIMIT 4');
 
-
-        return $this->render('accueil.html.twig', ['slider' => $slider]);
+        return $this->render('accueil.html.twig', [
+            'slider' => $slider, 'articles' => $articles
+        ]);
     }
 }

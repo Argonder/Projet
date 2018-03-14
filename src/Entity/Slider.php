@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SliderRepository")
  */
+
+//creation class Slider
 class Slider
 {
     /**
@@ -31,6 +33,7 @@ class Slider
      */
     private $active;
 
+    //ajout Getters et Setters
     /**
      * @return mixed
      */

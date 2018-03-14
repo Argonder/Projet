@@ -21,9 +21,14 @@ admin:
 
 
 
-app_sliderinsert:
-    path: /slider
-    controller: App\Controller\sliderController::insertslider
+app_insertSlider:
+    path: /admin/slider/ajouter
+    controller: App\Controller\AdminController::insertSlider
+
+app_addarticle:
+  path: /admin/article/ajouter
+  controller: App\Controller\AdminController::insertarticle
+
 
 
 

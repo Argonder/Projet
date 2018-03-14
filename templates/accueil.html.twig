@@ -14,13 +14,9 @@
             <!-- slides -->
 
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="" alt="">
-                    <div class="carousel-caption">
-                    </div>
-                </div>
+
                 {% for slider in slider %}
-                    <div class="item">
+                    <div class="{{ (loop.first) ? 'active' : '' }} item">
                         <img src="{{ slider.image }}" alt="{{ slider.libelle }}">
                     </div>
                 {% endfor %}
@@ -38,36 +34,22 @@
         </div>
 
     </div><!-- Fin carousel -->
+    <!-- PRESENTATION -->
     <div class="Presentation text-center"> <h1> Qui suis-je ? </h1>
         <p> Contenu article </p>
 
     </div>
-
+    <!-- DERNIER ARTICLE -->
     <div class="container dernierArticles">
         <div class="row">
-
-            <div class="col-md-6 text-center article-h">
-                <h2>Article</h2>
-                <img src="" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequatur, cumque dignissimos, eos eum harum inventore libero maxime minus modi nobis nostrum perferendis quam quasi ratione similique totam unde velit.</p>
+            <h2>Derniers Articles</h2>
+            {% for article in articles %}
+            <div class="col-xs-3 text-center article-h">
+                <h2>{{ article.titre_article }}</h2>
+                <img src="{{ article.image }}" alt="">
+                <p>{{ article.description }}</p>
             </div>
-            <div class="col-md-6 text-center article-h">
-                <h2>Article</h2>
-                <img src="" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequatur, cumque dignissimos, eos eum harum inventore libero maxime minus modi nobis nostrum perferendis quam quasi ratione similique totam unde velit.</p>
-            </div>
-            <div class="col-md-6 text-center article-h">
-                <h2>Article</h2>
-                <img src="" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequatur, cumque dignissimos, eos eum harum inventore libero maxime minus modi nobis nostrum perferendis quam quasi ratione similique totam unde velit.</p>
-            </div>
-            <div class="col-md-6 text-center article-h">
-                <h2>Article</h2>
-                <img src="" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequatur, cumque dignissimos, eos eum harum inventore libero maxime minus modi nobis nostrum perferendis quam quasi ratione similique totam unde velit.</p>
-            </div>
-
-
+            {% endfor %}
 
         </div>
     </div>
