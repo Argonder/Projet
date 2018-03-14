@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+php bin/console server:run<?php declare(strict_types = 1);
 
 namespace DoctrineMigrations;
 

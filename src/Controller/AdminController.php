@@ -188,4 +188,11 @@ class AdminController extends Controller
         return md5(uniqid());
     }
 
+    public function modifier()
+    {
+        return $this ->render('admin/Description/modifier.html.twig'
+
+    );
+    }
+
 }

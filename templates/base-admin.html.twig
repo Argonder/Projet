@@ -9,7 +9,11 @@
 </head>
 <body>
     <div class="adminBody">
+        <p><a href="/accueil">retour au site</a></p>
         <a href="{{ path('app_admin') }}" alt="retour" class="retour">accueil</a>
+        <p><a href="/admin/description/modifier">Modifier la description du site </a></p>
+
+
         <div class="container adminContainer">
         {% block body %}
         {% endblock %}

@@ -29,6 +29,10 @@ app_addarticle:
   path: /admin/article/ajouter
   controller: App\Controller\AdminController::insertarticle
 
+app_description:
+  path: /admin/description/modifier
+  controller: App\Controller\AdminController::modifier
+
 
 
 
