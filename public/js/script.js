@@ -48,23 +48,26 @@ $(".articleMove").click( function() {
 
 //ADMIN SLIDER
 //message validation insertion
+/*
 $("form").submit(function(){
     $("#form").append('<p>L\'image a été ajouté.</p>')
 });
+*/
 //afficher images sliders
-$(".imageslider").hide();
+$(".form-inline").hide();
 $(".ferm").hide();
-$(".btn-imgslider").click(function(){
-    $(".imageslider").show();
-    $(".btn-imgslider").hide();
+$(".btn-formslider").click(function(){
+    $(".form-inline").show();
+    $(".btn-formslider").hide();
     $(".ferm").show();
 });
 //fermer la div
 $(".ferm").click(function(){
-    $(".imageslider").hide();
-    $(".btn-imgslider").show();
+    $(".form-inline").hide();
+    $(".btn-formslider").show();
     $(".ferm").hide();
 });
+//FIN SLIDER
 //FIN ADMIN
 
 //RESPONSIVE

@@ -19,8 +19,6 @@ app_admin:
   path: /admin
   controller: App\Controller\AdminController::admin
 
-
-
 app_insertSlider:
     path: /admin/slider/ajouter
     controller: App\Controller\AdminController::insertSlider
@@ -29,7 +27,9 @@ app_addarticle:
   path: /admin/article/ajouter
   controller: App\Controller\AdminController::insertarticle
 
-
+modif_img:
+    path:     /admin/slider/{id}
+    controller: App\Controller\AdminController::modifImg
 
 
 logout:

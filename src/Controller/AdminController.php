@@ -59,7 +59,7 @@ class AdminController extends Controller
         $form = $this->createFormBuilder($slider)
             ->add('libelle', TextType::class, [
                 'required'  => true,
-                'label'     => false,
+                'label'     => 'Titre: ',
                 'attr'      => [
                     'name'  => 'libelle',
                     'class' => 'form-control' ,
@@ -69,16 +69,16 @@ class AdminController extends Controller
 
             ->add('image', FileType::class, [
                 'required'   => true ,
-                'label'     => 'Importer un fichier' ,
+                'label'     => 'Importer un fichier: ' ,
                 'attr'     => [
                     'name'  => 'image',
-                    'class'   => 'dropify'
+                    'class'   => 'dropify form-inline'
                 ]
             ])
 
             ->add('active', CheckBoxType::class,[
                 'required'  => false,
-                'label'     => 'Activé l\'image ',
+                'label'     => 'Activé l\'image:  ',
                 'attr'      => [
                     'name'  => 'active',
                     'class' => 'form-control' ,
@@ -106,14 +106,58 @@ class AdminController extends Controller
             $slider->setImage('images/'.$fileName);
             $entityManager->persist($slider);
             $entityManager->flush();
-
         }
 
+        //afficher toutes les images
         $repository = $this->getDoctrine()->getRepository(Slider::class);
-        $products = $repository->findBy(['active' => 1]);
+        $products = $repository->findAll();
+
         return $this->render('admin/slider/ajouter.html.twig',[
             'form' =>$form->createView(), 'data'=>'','product' =>$products
         ]);
+    }
+
+    //fonction modification/suppression Slider image
+    public function modifImg($id)
+    {
+        $request = Request::createFromGlobals();
+        $entityManager = $this->getDoctrine()->getManager();
+        $product = $entityManager->getRepository(Slider::class)->find($id);
+
+        //creation du formulaire
+        $form = $this->createFormBuilder()
+
+            ->add('supprimer', SubmitType::class, array(
+                'attr' => array('class' => 'btn btn-danger'),
+            ))
+
+            ->getForm();
+
+
+
+        $form->handleRequest($request);
+        if ($form->get('supprimer')->isClicked()) {
+            unlink($product->getImage());
+            $entityManager->remove($product);
+            $entityManager->flush();
+            return $this->redirect('../../admin', 308);
+        }
+        if($form->isSubmitted() && $product->getActive(1)) {
+            $product->setActive(0);
+            $active='activé';
+        }else{
+            $product->setActive(1);
+            $active='désactivé';
+        };
+
+        dump($form);
+        $entityManager->flush();
+
+        return $this->render('admin/slider/modifier.html.twig',[
+            'form' =>$form->createView(),'product' =>$product, 'active'=>$active,
+        ]);
+
+
     }
 
     //Fonction d'insertion d'article
