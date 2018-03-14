@@ -4,7 +4,7 @@ app_lucky_number:
 
 app_contact:
      path: /contact
-     controller: App\Controller\contactController::affichage
+     controller: App\Controller\contactController::contact
 
 app_articles:
     path: /articles

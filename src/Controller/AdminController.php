@@ -117,8 +117,11 @@ class AdminController extends Controller
     }
 
     //Fonction d'insertion d'article
-    public function insertarticle(Request $request)
+    public function insertarticle(Request $request, Connection $db)
     {
+
+        $articles = $db->fetchAll('SELECT * from article');
+
         $article = new Article();
         $form = $this->createFormBuilder($article)
         ->add('titre_article', TextType::class, [
@@ -156,9 +159,9 @@ class AdminController extends Controller
             ])
         ->getForm();
         $form->handleRequest($request);
+
+
         if ($form->isSubmitted()) {
-            $data = $form->getData();
-            $file = $form['image']->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $article = $form->getData();
             $file = $article->getImage();
@@ -176,7 +179,8 @@ class AdminController extends Controller
         }
 
         return $this->render('admin/article/ajouter.html.twig',[
-            'form' =>$form->createView(), 'data'=>$form
+            'form' =>$form->createView(), 'data'=>$form,
+            'articles' => $articles,
         ]);
     }
 

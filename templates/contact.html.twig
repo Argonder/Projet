@@ -6,8 +6,10 @@
         <div class="contact">
             <h2>Contact</h2>
             <p>
-                <i class="fa fa-phone"></i> 00.00.00.00 <br>
-                <i class="fa fa-envelope"></i> <span id="email_span">test@email.com</span>
+                {% for contact in contacts %}
+                <i class="fa fa-phone"></i> {{ contact.telephone }} <br>
+                <i class="fa fa-envelope"></i> <span id="email_span">{{ contact.email }}</span>
+                {% endfor %}
             </p>
             <!-- Formulaire -->
             <form class="form-contact">

@@ -6,6 +6,7 @@
  * Time: 12:11
  */
 namespace App\Controller;
+use Doctrine\DBAL\Connection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\component\Routing\Annotation\Route;
@@ -13,9 +14,9 @@ use Symfony\component\Routing\Annotation\Route;
 class contactController extends Controller
 {
 
-    public function affichage() {
-        return $this->render('contact.html.twig', [
-
+    public function contact(Connection $db) {
+        $contact = $db->fetchAll('SELECT * from contact');
+        return $this->render('contact.html.twig', ['contacts' => $contact
         ]);
     }
 }
