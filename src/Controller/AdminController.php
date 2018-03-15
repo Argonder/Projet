@@ -12,6 +12,7 @@ use App\Entity\Article;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -133,7 +134,7 @@ class AdminController extends Controller
                 'placeholder' => 'titre de l\'article...'
                         ]
                                                 ])
-            ->add('description', TextType::class,[
+            ->add('description', TextareaType::class,[
 
                 'required'  => true,
                 'label'     => false,
@@ -194,6 +195,34 @@ class AdminController extends Controller
         //creation du formulaire
         $form = $this->createFormBuilder()
 
+            ->add('titre_article', TextType::class, [
+                'required'  => true,
+                'label'     => false,
+                'constraints' => [new NotBlank()],
+                'attr'      => [
+                    'class' => 'form-control' ,
+                    'placeholder' => 'titre de l\'article...'
+                ]
+            ])
+            ->add('description', TextareaType::class,[
+
+                'required'  => true,
+                'label'     => false,
+                'constraints' => [new NotBlank()],
+                'attr'      => [
+                    'class' => 'form-control' ,
+                    'placeholder' => 'description de l\'article...'
+                ]
+            ])
+            ->add('image', FileType::class, [
+                'required'   => true ,
+                'label'     => false ,
+                'attr'     => [
+                    'class'   => 'dropify'
+                ]
+            ])
+
+            ->add('modifier')
             ->add('supprimer', SubmitType::class, array(
                 'attr' => array('class' => 'btn btn-danger'),
             ))
