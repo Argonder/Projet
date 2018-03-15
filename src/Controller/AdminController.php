@@ -221,7 +221,7 @@ class AdminController extends Controller
         $entityManager->flush();
 
         return $this->render('admin/article/modifier.html.twig',[
-            'form' =>$form->createView(),'product' =>$article,
+            'form' =>$form->createView(),'article' =>$article,
         ]);
 
 

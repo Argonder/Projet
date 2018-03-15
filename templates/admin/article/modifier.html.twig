@@ -6,15 +6,14 @@
            <h3>Modifier l'article</h3>
 
            <div class="row">
-               <img src="../../{{ article.image }}" alt="{{ article.libelle }}">
+               <p> {{ article.titreArticle }} </p>
+               <p> {{ article.description }} </p>
+               <img class="img-responsive" src="../../{{ article.image }}" alt="{{ article.titreArticle }}">
            </div>
            <!-- FORMULAIRE -->
            {{ form_start(form) }}
            {{ form_widget(form) }}
-           <button type="submit" name="modifier" class="btn btn-info" value="modifier">{{ active }}</button>
-
            {{ form_end(form) }}
        </div>
 
-       {#{{  dump(form) }}#}
    {% endblock %}
