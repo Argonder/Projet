@@ -1,1 +1,20 @@
 {%  extends 'base-admin.html.twig' %}
+
+   {% block body %}
+       <div class="container">
+
+           <h3>Modifier l'article</h3>
+
+           <div class="row">
+               <img src="../../{{ article.image }}" alt="{{ article.libelle }}">
+           </div>
+           <!-- FORMULAIRE -->
+           {{ form_start(form) }}
+           {{ form_widget(form) }}
+           <button type="submit" name="modifier" class="btn btn-info" value="modifier">{{ active }}</button>
+
+           {{ form_end(form) }}
+       </div>
+
+       {#{{  dump(form) }}#}
+   {% endblock %}
