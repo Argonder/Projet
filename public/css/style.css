@@ -160,14 +160,36 @@ header .navbar-default {
 }
 
 .articleblock p {
-    margin-left:30%;
+
 }
 
 .articleblock img {
-    height: 200px;
-    margin-left: 30%;
+    display: block;
+    max-width: 50%;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.table-responsive{
+    margin-top: 70px;
+}
+
+/* Ajouter article dans admin/article/ajouter */
+
+#form div{
+    margin-top: 15px;
+}
+
+#form_date select{
+    margin-right: 10px;
+}
+
+form button{
+    margin-top: 10px;
+}
+
+/* Fin Ajouter article dans admin/article/ajouter */
 
 /*FOOTER */
 footer{
@@ -211,7 +233,6 @@ footer{
 
 .adminContainer h3{
     padding-bottom:10px;
-    text-align:center;
     color: #333333;
 }
 .adminContainer h4{

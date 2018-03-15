@@ -4,19 +4,33 @@
        <div class="container">
 
            <div class="form-inline">
+               <p><b>Création d'Article</b></p>
                <!-- FORMULAIRE -->
                {{ form_start(form) }}
                {{ form_widget(form) }}
                <button type="submit" class="btn btn-warning" value="publier">Envoyer</button>
                {{ form_end(form) }}
            </div>
-           {% for article in articles %}
-               <div  class="">
-                   <h3>{{ article.titre_article }}</h3>
-                   <img class="img-responsive" src="../../{{ article.image }}" alt="{{ article.titre_article }}">
-                   <p>{{ article.description }}</p>
+
+               <div  class="table-responsive">
+                   <table class="table table-striped">
+                       <thead>
+                           <tr>
+                               <th scope="col">Titre Article</th>
+                               <th scope="col">Description Article</th>
+                               <th scope="col">Image Article</th>
+                           </tr>
+                       </thead>
+                       {% for article in articles %}
+                       <tr>
+                           <td><h3>{{ article.titre_article }}</h3></td>
+                           <td><p>{{ article.description }}</p></td>
+                           <td><img class="img-responsive" src="../../{{ article.image }}" alt="{{ article.titre_article }}"></td>
+                       </tr>
+                       {% endfor %}
+                   </table>
                </div>
-           {% endfor %}
+
 
        </div>
    {% endblock %}

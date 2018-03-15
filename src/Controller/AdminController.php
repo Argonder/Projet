@@ -120,7 +120,7 @@ class AdminController extends Controller
     public function insertarticle(Request $request, Connection $db)
     {
 
-        $articles = $db->fetchAll('SELECT * from article');
+       $articles = $db->fetchAll('SELECT * from article');
 
         $article = new Article();
         $form = $this->createFormBuilder($article)
