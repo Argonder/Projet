@@ -9,6 +9,7 @@
 namespace App\Controller ;
 use App\Entity\Slider;
 use App\Entity\Article;
+use App\Entity\User;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -28,11 +29,13 @@ class AdminController extends Controller
     {
         $articles = $db->fetchAll('SELECT * from article');
         $slider = $db->fetchAll('SELECT * from slider');
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $username = $repository->findAll();
         return $this->render('admin.html.twig', [
             'articles' => $articles,
-            'sliders' => $slider
+            'sliders' => $slider,
+            'username' => $username,
         ]);
-
     }
 
     //Connection

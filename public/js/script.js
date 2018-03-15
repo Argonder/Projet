@@ -75,9 +75,10 @@ function resizePage()
 {
     //inferieur à 750px
     var Largeur = $(window).width();
-    if(Largeur < 750) {
+    if(Largeur < 780) {
         $('.resp').show();
         $('.navbar-default').hide();
+        $('.navbar_admin').hide();
 
         //menu hamburger
         $('.hamenu').hide();
@@ -98,6 +99,7 @@ function resizePage()
     }else{
         $('.resp').hide();
         $('.navbar-default').show();
+        $('.navbar_admin').show();
     }
 };
 
