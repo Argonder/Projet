@@ -184,6 +184,49 @@ class AdminController extends Controller
         ]);
     }
 
+    //Fonction Modification-Suppression Article Existant
+    public function modifArticle($id)
+    {
+        $request = Request::createFromGlobals();
+        $entityManager = $this->getDoctrine()->getManager();
+        $article = $entityManager->getRepository(Article::class)->find($id);
+
+        //creation du formulaire
+        $form = $this->createFormBuilder()
+
+            ->add('supprimer', SubmitType::class, array(
+                'attr' => array('class' => 'btn btn-danger'),
+            ))
+
+            ->getForm();
+
+
+
+        $form->handleRequest($request);
+        if ($form->get('supprimer')->isClicked()) {
+            unlink($article->getImage());
+            $entityManager->remove($article);
+            $entityManager->flush();
+            return $this->redirect('../../admin', 308);
+        }
+        /*if($form->isSubmitted() && $product->getActive(1)) {
+            $product->setActive(0);
+            $active='activé';
+        }else{
+            $product->setActive(1);
+            $active='désactivé';
+        };*/
+
+
+        $entityManager->flush();
+
+        return $this->render('admin/article/modifier.html.twig',[
+            'form' =>$form->createView(),'product' =>$article,
+        ]);
+
+
+    }
+
     //Fonction de génération de nom unique pour l'image
     private function generateUniqueFileName()
     {
