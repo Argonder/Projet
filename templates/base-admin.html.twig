@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+<<<<<<< HEAD
 <body>
     <div class="adminBody">
         <p><a href="/accueil">retour au site</a></p>
@@ -17,6 +18,50 @@
         <div class="container adminContainer">
         {% block body %}
         {% endblock %}
+=======
+<body class="adminBody">
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('app_admin') }}">
+                        <span class="fa fa-home"></span>
+                    </a>
+                    <a class="navbar-brand" href="{{ path('app_lucky_number') }}">
+                        <span>Perline.com</span>
+                    </a>
+                </div>
+                <p class="navbar-text navbar-right">Bonjour {{ app.user.username }} </p>
+            </div>
+        </nav>
+        <!-- Menu Responsive -->
+        <nav class="resp col-xs-2">
+            <span class="ham fa fa-bars fa-3x "></span>
+            <span class="cross fa fa-times fa-3x "></span>
+            <ul class="hamenu">
+                <li><a href="{{ path('app_addarticle') }}" alt="Article">Articles</a></li>
+                <li><a href="{{ path('app_insertSlider') }}" alt="Slider">Slider</a></li>
+                <li><a href="#" alt="Presentation">Presentation</a></li>
+                <li><a href="#" alt="Contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Fin menu Responsive -->
+
+        <div class="row">
+            <div class="navbar_admin col-xs-2">
+                <ul>
+                    <li><a href="{{ path('app_addarticle') }}" alt="Article">Articles</a></li>
+                    <li><a href="{{ path('app_insertSlider') }}" alt="Slider">Slider</a></li>
+                    <li><a href="#" alt="Presentation">Presentation</a></li>
+                    <li><a href="#" alt="Contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="container adminContainer col-xs-10">
+            {% block body %}
+            {% endblock %}
+            </div>
+>>>>>>> cc6960eaafa9774535f03ac1c7071394ad172a7d
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

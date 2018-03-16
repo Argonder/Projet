@@ -17,6 +17,7 @@ class LuckyController extends Controller
         $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
         $articles = $db->fetchAll('SELECT * from article ORDER BY date LIMIT 4');
 
+        //retourne la vue
         return $this->render('accueil.html.twig', [
             'slider' => $slider, 'articles' => $articles
         ]);

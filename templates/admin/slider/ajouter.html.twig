@@ -4,26 +4,61 @@
        <p><a href="/admin/article/ajouter">Ajouter un article</a></p>
        <p><a href="/admin/slider/ajouter">Ajouter une image au slider</a></p>
        <div class="container">
+           <div class="slider">
+               <h3>Vue du Slider</h3>
+               <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                   <div class="carousel-inner" role="listbox">
 
-           <h3>Modifier le Slider</h3>
-           <!-- image deja presente dans le slider -->
-               <div class="row ">
-                   <div  class="col-sm-4 col-md-offset-4">
                        {% for slider in product %}
-
-                               <img src="../../{{ slider.image }}" alt="{{ slider.libelle }}">
-
+                           <div class="{{ (loop.first) ? 'active' : '' }} item">
+                               <img src="../../{{ slider.image }}" alt="../../{{ slider.libelle }}">
+                           </div>
                        {% endfor %}
+
                    </div>
+
+                   <!-- Control -->
+                   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                       <span class="sr-only">Précédent</span>
+                   </a>
+                   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                       <span class="sr-only">Suivant</span>
+                   </a>
                </div>
-         <h4>Ajouter une image dans le slider</h4>
-         <div class="form-inline">
-           <!-- FORMULAIRE -->
-           {{ form_start(form) }}
-           {{ form_widget(form) }}
-           <button type="submit" class="btn btn-warning" value="publier">Envoyer</button>
-           {{ form_end(form) }}
-         </div>
+               <br>
+               <hr>
+               <h3>Modifier le Slider</h3>
+               <!-- image deja presente dans le slider -->
+               <div class="row imageslider">
+                    <p>Image dans la gallerie:</p>
+                    {% for slider in product %}
+
+                        <div style="display:inline-block;">
+                            <img style="display: block;" src="../../{{ slider.image }}" alt="{{ slider.libelle }}">
+                             <a href="{{ slider.id }}">modifier</a>
+                        </div>
+
+                    {% endfor %}
+
+               </div>
+
+               <!-- Ajout d'une image -->
+               <btn class="ferm fa fa-times btn btn-default  col-xs-offset-3"></btn>
+               <div class="btn-formslider btn btn-default">
+                   <p>Ajouter une image</p>
+               </div>
+               <div class="form-inline">
+                   <!-- FORMULAIRE -->
+                   {{ form_start(form) }}
+                   {{ form_widget(form) }}
+                   <button type="submit" class="btn btn-warning" value="publier">Envoyer</button>
+                   {{ form_end(form) }}
+               </div>
+
+           </div>
        </div>
+
 
    {% endblock %}

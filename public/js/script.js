@@ -48,10 +48,26 @@ $(".articleMove").click( function() {
 
 //ADMIN SLIDER
 //message validation insertion
+/*
 $("form").submit(function(){
     $("#form").append('<p>L\'image a été ajouté.</p>')
-})
-
+});
+*/
+//afficher images sliders
+$(".form-inline").hide();
+$(".ferm").hide();
+$(".btn-formslider").click(function(){
+    $(".form-inline").show();
+    $(".btn-formslider").hide();
+    $(".ferm").show();
+});
+//fermer la div
+$(".ferm").click(function(){
+    $(".form-inline").hide();
+    $(".btn-formslider").show();
+    $(".ferm").hide();
+});
+//FIN SLIDER
 //FIN ADMIN
 
 //RESPONSIVE
@@ -59,9 +75,10 @@ function resizePage()
 {
     //inferieur à 750px
     var Largeur = $(window).width();
-    if(Largeur < 750) {
+    if(Largeur < 780) {
         $('.resp').show();
         $('.navbar-default').hide();
+        $('.navbar_admin').hide();
 
         //menu hamburger
         $('.hamenu').hide();
@@ -82,6 +99,7 @@ function resizePage()
     }else{
         $('.resp').hide();
         $('.navbar-default').show();
+        $('.navbar_admin').show();
     }
 };
 

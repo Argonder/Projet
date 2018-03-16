@@ -12,7 +12,7 @@ use Symfony\component\Routing\Annotation\Route;
 
 class contactController extends Controller
 {
-
+    //retourne la vue
     public function affichage() {
         return $this->render('contact.html.twig', [
 

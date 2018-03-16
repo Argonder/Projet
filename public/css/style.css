@@ -47,10 +47,6 @@ header .navbar-default {
 /* Accueil */
 
 /* SLIDER */
-#slider {
-
-}
-
 #carousel-example-generic {
     padding:0;
     margin:0;
@@ -185,53 +181,179 @@ footer{
 /* FIN FOOTER */
 
 /* ADMIN */
-/*Accueil*/
-.retour{
-  margin-left:15px;
-  color: #A09D9D;
+/* LOGIN */
+#connexion{
+    margin:20px;
 }
 
-.retour:hover {
-    color: #C01616;
-    text-decoration: none;
+#connexion label{
+    color:#FFFFFF;
+}
+
+/*Accueil*/
+
+.row{
+    margin:0;
+    padding:0;
 }
 
 .adminBody{
     background-color: #333333;
-    width:100%;
-    height:780px;
 }
 
 .adminContainer{
     background-color: #FFFFFF;
     padding-top:20px;
-    padding-bottom:50px;
-    border-radius: 15px;
-    box-shadow: 2px 2px 2px #000000 ;
+    padding-bottom:20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #000000;
+    width: 70%;
+    margin-bottom: 50px;
 }
 
-.adminContainer h3{
+/* NAVBAR */
+.adminBody .navbar-inverse{
+    padding: 0 50px 0 20px;
+}
+
+.adminBody nav{
+    margin-bottom: 50px;
+}
+
+.adminBody .navbar_admin ul li a{
+    color: #FFFFFF;
+
+}
+
+.adminBody .navbar_admin ul li a:hover {
+    color: #c04b42;
+    text-decoration: none;
+}
+
+.adminBody .navbar_admin ul li{
+    text-decoration:none;
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+
+
+/*SLIDER*/
+.adminContainer .slider h3{
     padding-bottom:10px;
     text-align:center;
     color: #333333;
 }
-.adminContainer h4{
-    margin-top:20px;
+.adminContainer .slider h4{
+    margin-top:40px;
 }
 
-/*SLIDER*/
-.adminContainer img{
-    height:80px;
+.adminContainer .slider img{
+    height: 100px;
+    margin-left: 20px;
 }
 
-.form-inline form #form label {
+.adminContainer .slider .imageslider a{
+    margin-left: 44px;
+}
+
+
+.slider .form-inline form #form label {
     margin-bottom: 10px;
-    font-weight: 100;
     margin-right: 30px;
     margin-top: 15px;
 }
-
-.form-inline form #form input {
-
+.slider .btn-formslider, .ferm{
+    margin-top: 30px;
 }
+.slider .ferm{
+    padding:1px 2px;
+}
+
+.image_modif{
+    width: 70%;
+}
+
+.btn_modif{
+    margin-left: 10px;
+}
+
 /* FIN ADMIN */
+/*Responsive */
+@media (max-width:1380px){
+    /*SLIDER*/
+    .adminContainer .slider h3{
+        text-align:left;
+    }
+}
+
+@media (max-width: 780px){
+    /* navbar site*/
+    #slider{
+    margin-top: 60px ;
+    }
+    .container .resp ul li a{
+        color: #3e3e3e;
+        list-style-type: none;
+        text-transform: uppercase;
+    }
+    .container .resp ul li{
+        background-color: #bfbfbf;
+        font-weight: bold;
+        margin-bottom: 10px;
+        border-radius: 2px;
+        text-align:center;
+    }
+    .container .resp {
+        width:100%;
+        background-color: #b1b1b1;
+        padding: 10px;
+    }
+    .container .resp ul {
+        list-style-type: none;
+        border-radius: 10px;
+    }
+    /****************/
+    /* navbar ADMIN*/
+    .adminBody nav{
+        margin-bottom: 0px;
+    }
+
+    .adminContainer{
+        margin-left: 20%;
+    }
+
+    .adminBody .navbar-inverse{
+        padding: 0;
+    }
+
+    .adminBody .resp .ham, .adminBody .resp .cross {
+        color: #b1b1b1;
+    }
+    .adminBody .resp ul li a{
+        color: #b1b1b1;
+        list-style-type: none;
+    }
+
+    .adminBody .resp ul li a{
+        color: #3e3e3e;
+        list-style-type: none;
+        text-transform: uppercase;
+    }
+    .adminBody .resp ul li{
+        background-color: #b4b4b4;
+        font-weight: bold;
+        margin-bottom: 10px;
+        border-radius: 2px;
+        text-align:center;
+    }
+
+    .adminBody .resp {
+        margin-bottom: 20px;
+        width:100%;
+        background-color: #5e5e5e;
+    }
+    .adminBody .resp ul {
+        list-style-type: none;
+        border-radius: 10px;
+    }
+}
