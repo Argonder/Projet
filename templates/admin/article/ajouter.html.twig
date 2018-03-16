@@ -26,7 +26,7 @@
                        <tr>
                            <td><h3>{{ article.titre_article }}</h3></td>
                            <td><p>{{ article.description }}</p></td>
-                           <td><img class="img-responsive" src="{{ asset(article.image) }}" alt="{{ article.titre_article }}"></td>
+                           <td><img class="img-responsive articleImg" src="{{ asset(article.image) }}" alt="{{ article.titre_article }}"></td>
                            <td><a href="{{ path('modif_article', {'id': article.id}) }}">Modifier</a></td>
                            <td><a href="{{ path('supprim_article', {'id': article.id}) }}">Supprimer</a></td>
                        </tr>
