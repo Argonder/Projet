@@ -332,9 +332,14 @@ footer a:hover{
     }
     .container .resp {
         width:100%;
-        background-color: #b1b1b1;
+        background-color: rgba(0, 0, 0, 0.77);;
         padding: 10px;
     }
+
+    .container .cross, .container .ham{
+        color: #6e6e6e;
+    }
+
     .container .resp ul {
         list-style-type: none;
         border-radius: 10px;
@@ -385,6 +390,10 @@ footer a:hover{
     }
     /* Contact */
     .form-contact .email-form {
+        margin:0;
+    }
+
+    .form-contact .btn-envoi {
         margin:0;
     }
 }
