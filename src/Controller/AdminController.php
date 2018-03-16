@@ -213,13 +213,15 @@ class AdminController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form->get('image')->getData();
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-            $file->move(
-                '../public/images/',
-                $fileName);
-            $article->setImage('images/'.$fileName);
-            $entityManager->persist($article);
-            $entityManager->flush();
+            if($file){
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                $file->move(
+                    '../public/images/',
+                    $fileName);
+                $article->setImage('images/' . $fileName);
+                $entityManager->persist($article);
+                $entityManager->flush();
+            }
         }
 
         return $this->render('admin/article/modifier.html.twig',[
@@ -238,7 +240,9 @@ class AdminController extends Controller
         $article = $entityManager->getRepository(Article::class)->find($id);
         if ($article->getImage()) {
             $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
-            unlink($image);
+            if (file_exists($image)){
+                unlink($image);
+            }
         }
         $entityManager->remove($article);
         $entityManager->flush();
