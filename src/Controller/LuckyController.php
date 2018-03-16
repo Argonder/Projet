@@ -11,15 +11,11 @@ use Doctrine\DBAL\Connection;
 
 class LuckyController extends Controller
 {
-    private function getArticles(Connection $db)
-    {
-        return $db->fetchAll('SELECT * from article ORDER BY id DESC LIMIT 4');
-    }
 
     public function affichage(Connection $db) {
 
         $slider = $db->fetchAll('SELECT * from slider WHERE active=1');
-        $articles = $this->getArticles($db);
+        $articles = $db->fetchAll('SELECT * from article ORDER BY date LIMIT 4');
 
         //retourne la vue
         return $this->render('accueil.html.twig', [

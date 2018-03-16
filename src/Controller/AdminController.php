@@ -9,15 +9,10 @@
 namespace App\Controller ;
 use App\Entity\Slider;
 use App\Entity\Article;
-
 use App\Entity\User;
-
-use App\Form\ArticleType;
-
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -182,9 +177,8 @@ class AdminController extends Controller
     }
 
     //Fonction d'insertion d'article
-    public function insertarticle(Request $request, Connection $db)
+    public function insertarticle(Request $request)
     {
-
         //nouvel article
         $article = new Article();
         //creation du formulaire
@@ -200,25 +194,45 @@ class AdminController extends Controller
                                                 ])
             ->add('description', TextType::class,[
 
-
-       $articles = $db->fetchAll('SELECT * from article');
-
-        $article = new Article();
-        $form = $this->createForm(ArticleType::class,$article);
+                'required'  => true,
+                'label'     => false,
+                'constraints' => [new NotBlank()],
+                'attr'      => [
+                    'class' => 'form-control' ,
+                    'placeholder' => 'description de l\'article...'
+                ]
+            ])
+            ->add('image', FileType::class, [
+                'required'   => true ,
+                'label'     => false ,
+                'attr'     => [
+                    'class'   => 'dropify'
+                ]
+            ])
+            ->add('date', DateType::class, [
+                'required'   => true ,
+                'label'     => false ,
+                'attr'     => [
+                    'class'   => 'dropify'
+                ]
+            ])
+        ->getForm();
         $form->handleRequest($request);
-
         //lorsque l'on envoit le formulaire
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
+            $data = $form->getData();
+            $file = $form['image']->getData();
             $entityManager = $this->getDoctrine()->getManager();
-            $file = $form->get('image')->getData();
+            $article = $form->getData();
+            $file = $article->getImage();
+
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
             // moves the file to the directory where brochures are stored
             $file->move(
                 '../public/images/',
                 $fileName);
             $article->setImage('images/'.$fileName);
-
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -226,55 +240,8 @@ class AdminController extends Controller
 
         //retourne la vue
         return $this->render('admin/article/ajouter.html.twig',[
-            'form' =>$form->createView(), 'data'=>$form,
-            'articles' => $articles,
+            'form' =>$form->createView(), 'data'=>$form
         ]);
-    }
-
-    //Fonction Modification Article Existant
-    public function modifArticle($id)
-    {
-        $request = Request::createFromGlobals();
-        $entityManager = $this->getDoctrine()->getManager();
-        $article = $entityManager->getRepository(Article::class)->find($id);
-
-        //creation du formulaire
-        $form = $this->createForm(ArticleType::class, $article);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form->get('image')->getData();
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-            $file->move(
-                '../public/images/',
-                $fileName);
-            $article->setImage('images/'.$fileName);
-            $entityManager->persist($article);
-            $entityManager->flush();
-        }
-
-        return $this->render('admin/article/modifier.html.twig',[
-            'form' =>$form->createView(),'article' =>$article,
-        ]);
-
-
-    }
-
-
-    //Fonction Suppression Article Existant
-
-    public function supprimArticle($id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $article = $entityManager->getRepository(Article::class)->find($id);
-        if ($article->getImage()) {
-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
-            unlink($image);
-        }
-        $entityManager->remove($article);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('app_addarticle');
     }
 
     //Fonction de génération de nom unique pour l'image

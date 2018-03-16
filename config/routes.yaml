@@ -4,7 +4,7 @@ app_lucky_number:
 
 app_contact:
      path: /contact
-     controller: App\Controller\contactController::contact
+     controller: App\Controller\contactController::affichage
 
 app_articles:
     path: /articles
@@ -27,7 +27,6 @@ app_addarticle:
   path: /admin/article/ajouter
   controller: App\Controller\AdminController::insertarticle
 
-
 app_description:
   path: /admin/description/modifier
   controller: App\Controller\AdminController::modifier
@@ -35,16 +34,6 @@ app_description:
 modif_img:
     path:     /admin/slider/{id}
     controller: App\Controller\AdminController::modifImg
-
-modif_article:
-    path:     /admin/article/edit/{id}
-    controller: App\Controller\AdminController::modifArticle
-
-supprim_article:
-    path:     /admin/article/delete/{id}
-    controller: App\Controller\AdminController::supprimArticle
-
-
 
 logout:
     path: /logout
