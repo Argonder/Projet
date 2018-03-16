@@ -173,6 +173,7 @@ header .navbar-default {
 
 .table-responsive{
     margin-top: 70px;
+    padding-right: 35px;
 }
 
 /* Ajouter article dans admin/article/ajouter */
