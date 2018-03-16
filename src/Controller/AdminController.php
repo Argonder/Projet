@@ -185,20 +185,6 @@ class AdminController extends Controller
     public function insertarticle(Request $request, Connection $db)
     {
 
-        //nouvel article
-        $article = new Article();
-        //creation du formulaire
-        $form = $this->createFormBuilder($article)
-        ->add('titre_article', TextType::class, [
-            'required'  => true,
-            'label'     => false,
-            'constraints' => [new NotBlank()],
-            'attr'      => [
-                'class' => 'form-control' ,
-                'placeholder' => 'titre de l\'article...'
-                        ]
-                                                ])
-            ->add('description', TextType::class,[
 
 
        $articles = $db->fetchAll('SELECT * from article');
