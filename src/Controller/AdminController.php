@@ -134,7 +134,7 @@ class AdminController extends Controller
 
             //btn supprimer
             ->add('supprimer', SubmitType::class, array(
-                'attr' => array('class' => 'btn btn-danger'),
+                'attr' => array('class' => 'btn btn-danger btn_modif'),
             ))
 
             //génère formulaire
