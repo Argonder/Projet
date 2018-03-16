@@ -1,3 +1,14 @@
+/* FONT DU SITE */
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'amira mudarai';
+}
+
+p{
+    font-family: 'cabin';
+    font-size: 16px;
+}
+
 /* MENU */
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
     color: #FFFFFF;
