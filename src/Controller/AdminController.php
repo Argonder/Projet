@@ -181,16 +181,17 @@ class AdminController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $file = $form->get('image')->getData();
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-            // moves the file to the directory where brochures are stored
-            $file->move(
-                '../public/images/',
-                $fileName);
-            $article->setImage('images/'.$fileName);
+            if ($file) {
+                $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+                // moves the file to the directory where brochures are stored
+                $file->move(
+                    '../public/images/',
+                    $fileName);
+                $article->setImage('images/' . $fileName);
 
-            $entityManager->persist($article);
-            $entityManager->flush();
-
+                $entityManager->persist($article);
+                $entityManager->flush();
+            }
         }
 
         //retourne la vue
