@@ -10,7 +10,6 @@ app_articles:
     path: /articles
     controller: App\Controller\ArticlesController::article
 
-
 login:
     path: /login
     controller: App\Controller\AdminController::login
@@ -23,6 +22,15 @@ app_insertSlider:
     path: /admin/slider/ajouter
     controller: App\Controller\AdminController::insertSlider
 
+app_deleteSlider:
+    path: /admin/slider/supprimer/{id}
+    controller: App\Controller\AdminController::deleteSlider
+
+app_activSlider:
+    path: /admin/slider/activ/{id}
+    controller: App\Controller\AdminController::activSlider
+
+
 app_addarticle:
   path: /admin/article/ajouter
   controller: App\Controller\AdminController::insertarticle
@@ -31,9 +39,9 @@ app_description:
   path: /admin/description/modifier
   controller: App\Controller\AdminController::modifier
 
-modif_img:
-    path:     /admin/slider/{id}
-    controller: App\Controller\AdminController::modifImg
+app_addcontact:
+  path: /admin/contact/modifier
+  controller: App\Controller\AdminController::contact
 
 logout:
     path: /logout

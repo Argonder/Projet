@@ -102,12 +102,16 @@ header .navbar-default {
     padding: 30px 0;
 }
 
+.contact h2 {
+    margin: 30px 0;
+}
+
 .form-contact {
-    margin:50px 0;
+    margin: 50px 0;
 }
 
 .form-contact .btn-envoi {
-    margin-top: 50px;
+    margin: 50px 0;
     margin-left: 90%;
 }
 
@@ -117,6 +121,10 @@ header .navbar-default {
 
 .form-inline .email-form {
     margin-left: 15px;
+}
+
+#email_span{
+    text-transform: uppercase ;
 }
 
 /* ARTICLE */
@@ -168,7 +176,19 @@ header .navbar-default {
 /*FOOTER */
 footer{
     box-shadow: 0 -8px 8px 1px #0000001a;
-    background-color: #f2f2f2;
+    background-color: #707070;
+    padding: 50px 0 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+footer a{
+    color: #FFFFFF;
+}
+
+footer a:hover{
+    color: #f15e53;
+    text-decoration: none;
 }
 
 .positionnement{
@@ -248,14 +268,15 @@ footer{
 }
 
 .adminContainer .slider img{
-    height: 100px;
+    height: 130px;
     margin-left: 20px;
+    margin-bottom:10px;
+    border-radius: 10px;
 }
 
 .adminContainer .slider .imageslider a{
     margin-left: 44px;
 }
-
 
 .slider .form-inline form #form label {
     margin-bottom: 10px;
@@ -269,12 +290,13 @@ footer{
     padding:1px 2px;
 }
 
-.image_modif{
-    width: 70%;
+.image_block_modif{
+    border-right: solid #b5b5b5 1px;
+    padding-right: 20px;
 }
 
-.btn_modif{
-    margin-left: 10px;
+.image_block_modif form{
+    width: 50px;
 }
 
 /* FIN ADMIN */
