@@ -11,7 +11,7 @@
                 <h4>Jane Doe</h4>
                 {% for contact in contacts %}
                     <i class="fa fa-phone"></i> {{ contact.telephone }} <br>
-                    <i class="fa fa-envelope"></i> <span id="email_span">{{ contact.email }}</span>
+                    <i class="fa fa-envelope"></i> {{ contact.email }}
                 {% endfor %}
                 <hr>
                 <span id="email_span">Contactez-moi</span>
