@@ -98,12 +98,14 @@ header .navbar-default {
 /* FIN ACCUEIL */
 
 /* CONTACT FORMULAIRE */
-.imagebackground{
-    width:100%;
-    height: 150px;
-    background-image: url('../images/bgimagec.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
+.headercontact h2{
+    margin-top: 60px;
+    text-transform: uppercase;
+    color: #5f5f5f;
+}
+.headercontact{
+    width: 100%;
+    height: 90px;
 }
 
 #email_span:hover {
@@ -113,16 +115,22 @@ header .navbar-default {
 
 .contact {
     text-align: center;
-    height: 500px;
-    padding: 30px 0;
+    height: 550px;
+    padding: 50px 0;
+    background-color: #f5f5f5;
+    margin: 0 0 30px 0;
+}
+
+.body_contact{
+    background-color: #dedede;
 }
 
 .form-contact {
-    margin:50px 0;
+    margin: 30px 0;
 }
 
 .form-contact .btn-envoi {
-    margin-top: 50px;
+    margin: 30px 0;
     margin-left: 90%;
 }
 
@@ -132,6 +140,10 @@ header .navbar-default {
 
 .form-inline .email-form {
     margin-left: 15px;
+}
+
+#email_span{
+    text-transform: uppercase ;
 }
 
 /* ARTICLE */
@@ -209,7 +221,20 @@ form button{
 /*FOOTER */
 footer{
     box-shadow: 0 -8px 8px 1px #0000001a;
-    background-color: #f2f2f2;
+    background-color: #707070;
+    padding: 50px 0 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-top: 5%;
+}
+
+footer a{
+    color: #FFFFFF;
+}
+
+footer a:hover{
+    color: #f15e53;
+    text-decoration: none;
 }
 
 .positionnement{
@@ -290,9 +315,11 @@ footer{
 }
 
 
-.adminContainer .slider img {
-    height: 100px;
+.adminContainer .slider img{
+    height: 130px;
     margin-left: 20px;
+    margin-bottom:10px;
+    border-radius: 10px;
 }
 
 
@@ -300,7 +327,6 @@ footer{
 .adminContainer .slider .imageslider a{
     margin-left: 44px;
 }
-
 
 .slider .form-inline form #form label {
     margin-bottom: 10px;
@@ -314,12 +340,13 @@ footer{
     padding:1px 2px;
 }
 
-.image_modif{
-    width: 70%;
+.image_block_modif{
+    border-right: solid #b5b5b5 1px;
+    padding-right: 20px;
 }
 
-.btn_modif{
-    margin-left: 10px;
+.image_block_modif form{
+    width: 50px;
 }
 
 /* FIN ADMIN */
@@ -350,9 +377,14 @@ footer{
     }
     .container .resp {
         width:100%;
-        background-color: #b1b1b1;
+        background-color: rgba(0, 0, 0, 0.77);;
         padding: 10px;
     }
+
+    .container .cross, .container .ham{
+        color: #6e6e6e;
+    }
+
     .container .resp ul {
         list-style-type: none;
         border-radius: 10px;
@@ -400,5 +432,13 @@ footer{
     .adminBody .resp ul {
         list-style-type: none;
         border-radius: 10px;
+    }
+    /* Contact */
+    .form-contact .email-form {
+        margin:0;
+    }
+
+    .form-contact .btn-envoi {
+        margin:0;
     }
 }

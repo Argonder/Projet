@@ -54,16 +54,16 @@ $("form").submit(function(){
 });
 */
 //afficher images sliders
-$(".form-inline").hide();
+$(".form-slider").hide();
 $(".ferm").hide();
 $(".btn-formslider").click(function(){
-    $(".form-inline").show();
+    $(".form-slider").show();
     $(".btn-formslider").hide();
     $(".ferm").show();
 });
 //fermer la div
 $(".ferm").click(function(){
-    $(".form-inline").hide();
+    $(".form-slider").hide();
     $(".btn-formslider").show();
     $(".ferm").hide();
 });
