@@ -7,18 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<<<<<<< HEAD
-<body>
-    <div class="adminBody">
-        <p><a href="/accueil">retour au site</a></p>
-        <a href="{{ path('app_admin') }}" alt="retour" class="retour">accueil</a>
-        <p><a href="/admin/description/modifier">Modifier la description du site </a></p>
-
-
-        <div class="container adminContainer">
-        {% block body %}
-        {% endblock %}
-=======
 <body class="adminBody">
     <div>
         <nav class="navbar navbar-inverse">
@@ -41,7 +29,7 @@
             <ul class="hamenu">
                 <li><a href="{{ path('app_addarticle') }}" alt="Article">Articles</a></li>
                 <li><a href="{{ path('app_insertSlider') }}" alt="Slider">Slider</a></li>
-                <li><a href="#" alt="Presentation">Presentation</a></li>
+                <li><a href="{{ path('app_description') }}" alt="Presentation">Presentation</a></li>
                 <li><a href="#" alt="Contact">Contact</a></li>
             </ul>
         </nav>
@@ -52,7 +40,7 @@
                 <ul>
                     <li><a href="{{ path('app_addarticle') }}" alt="Article">Articles</a></li>
                     <li><a href="{{ path('app_insertSlider') }}" alt="Slider">Slider</a></li>
-                    <li><a href="#" alt="Presentation">Presentation</a></li>
+                    <li><a href="{{ path('app_description') }}" alt="Presentation">Presentation</a></li>
                     <li><a href="#" alt="Contact">Contact</a></li>
                 </ul>
             </div>
@@ -61,7 +49,6 @@
             {% block body %}
             {% endblock %}
             </div>
->>>>>>> cc6960eaafa9774535f03ac1c7071394ad172a7d
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

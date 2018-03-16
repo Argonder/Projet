@@ -27,18 +27,13 @@ app_addarticle:
   path: /admin/article/ajouter
   controller: App\Controller\AdminController::insertarticle
 
-<<<<<<< HEAD
 app_description:
   path: /admin/description/modifier
   controller: App\Controller\AdminController::modifier
 
-
-=======
 modif_img:
     path:     /admin/slider/{id}
     controller: App\Controller\AdminController::modifImg
->>>>>>> cc6960eaafa9774535f03ac1c7071394ad172a7d
-
 
 logout:
     path: /logout
