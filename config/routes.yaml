@@ -30,9 +30,12 @@ app_addarticle:
   controller: App\Controller\AdminController::insertarticle
 
 modif_article:
-    path:     /admin/article/{id}
+    path:     /admin/article/edit/{id}
     controller: App\Controller\AdminController::modifArticle
 
+supprim_article:
+    path:     /admin/article/delete/{id}
+    controller: App\Controller\AdminController::supprimArticle
 
 
 logout:
