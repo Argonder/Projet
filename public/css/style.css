@@ -80,6 +80,10 @@ header .navbar-default {
     margin-bottom:30px;
 }
 
+#article_date select{
+    margin-right: 10px;
+}
+
 /* FIN ACCUEIL */
 
 /* CONTACT FORMULAIRE */
@@ -165,6 +169,10 @@ header .navbar-default {
     height: 180px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.articleImg{
+    height:80px;
 }
 
 .table-responsive{
@@ -271,10 +279,13 @@ footer{
     margin-top:40px;
 }
 
-.adminContainer .slider img{
+
+.adminContainer .slider img {
     height: 100px;
     margin-left: 20px;
 }
+
+
 
 .adminContainer .slider .imageslider a{
     margin-left: 44px;

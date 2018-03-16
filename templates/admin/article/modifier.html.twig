@@ -8,7 +8,7 @@
            <div class="row">
                <p> {{ article.titreArticle }} </p>
                <p> {{ article.description }} </p>
-               <img class="img-responsive" src="{{ asset(article.image) }}" alt="{{ article.titreArticle }}">
+               <img class="img-responsive articleImg" src="{{ asset(article.image) }}" alt="{{ article.titreArticle }}">
            </div>
            <!-- FORMULAIRE -->
            {{ form_start(form) }}
