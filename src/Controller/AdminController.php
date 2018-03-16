@@ -120,13 +120,16 @@ class AdminController extends Controller
         $repository = $this->getDoctrine()->getRepository(Slider::class);
         $products = $repository->findAll();
 
+        //recupère image active dans slider
+        $image = $repository->findBy(['active'=>1]);
+
         return $this->render('admin/slider/ajouter.html.twig',[
-            'form' =>$form->createView(), 'product' =>$products
+            'form' =>$form->createView(), 'product' =>$products, 'image' =>$image
         ]);
     }
 
-    //fonction modification/suppression Slider image
-    public function modifImg($id)
+    //fonction supprimer
+    public function deleteSlider($id)
     {
         //recupération var requete
         $request = Request::createFromGlobals();
@@ -134,51 +137,31 @@ class AdminController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $product = $entityManager->getRepository(Slider::class)->find($id);
 
-        //creation du formulaire
-        $form = $this->createFormBuilder()
+        //suppression egalement du dossier
+        unlink($product->getImage());
+        $entityManager->remove($product);
+        $entityManager->flush();
+        return $this->redirect('../ajouter');
+    }
 
-            //btn supprimer
-            ->add('supprimer', SubmitType::class, array(
-                'attr' => array('class' => 'btn btn-danger btn_modif'),
-            ))
+    //fonction activer l'image dans le slider
+    public function activSlider($id)
+    {
+        //recupération var requete
+        $request = Request::createFromGlobals();
+        //connection BDD, recupération ID
+        $entityManager = $this->getDoctrine()->getManager();
+        $product = $entityManager->getRepository(Slider::class)->find($id);
 
-            //génère formulaire
-            ->getForm();
-
-        $form->handleRequest($request);
-        //fonction suppression
-        if ($form->get('supprimer')->isClicked()) {
-            //suppression egalement du dossier
-            unlink($product->getImage());
-            $entityManager->remove($product);
-            $entityManager->flush();
-            return $this->redirect('../../admin', 308);
-        }
-        //fonction activer l'image
-
-        if($form->isSubmitted() && $product->getActive(1)) {
+        if($product->getActive(1)) {
             $product->setActive(0);
 
         }else{
             $product->setActive(1);
-
         };
-
-        if($product->getActive(1)) {
-            $active='désactiver';
-        }else{
-            $active='activer';
-        };
-
-        dump($form);
 
         $entityManager->flush();
-        //retourne la vue
-        return $this->render('admin/slider/modifier.html.twig',[
-            'form' =>$form->createView(),'product' =>$product, 'active'=>$active,
-        ]);
-
-
+        return $this->redirect('../ajouter');
     }
 
     //Fonction d'insertion d'article
@@ -273,9 +256,12 @@ class AdminController extends Controller
 
     public function modifier()
     {
-        return $this ->render('admin/Description/modifier.html.twig'
+        return $this ->render('admin/Description/modifier.html.twig');
+    }
 
-    );
+    public function contact()
+    {
+        return $this ->render('admin/contact/modifier.html.twig');
     }
 
 }
