@@ -15,8 +15,8 @@ class contactController extends Controller
 {
     public function contact(Connection $db) {
         $contact = $db->fetchAll('SELECT * from contact');
-        return $this->render('contact.html.twig', ['contacts' => $contact
 
+        return $this->render('contact.html.twig', ['contacts' => $contact
         ]);
     }
 }

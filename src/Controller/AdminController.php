@@ -10,9 +10,11 @@ namespace App\Controller ;
 use App\Entity\Presentation;
 use App\Entity\Slider;
 use App\Entity\Article;
+use App\Entity\Contact;
 use App\Entity\User;
 use App\Form\ArticleType;
 use App\Form\PresentationType;
+use App\Form\ContactType;
 
 
 use Doctrine\DBAL\Connection;
@@ -288,7 +290,25 @@ class AdminController extends Controller
 
     public function contact()
     {
-        return $this ->render('admin/contact/modifier.html.twig');
+        $request = Request::createFromGlobals();
+        $entityManager = $this->getDoctrine()->getManager();
+        //l'id ne doit pas changer, on n'ajoute pas de presentation, on modifie toujours la même.
+        $id= 1;
+        $contact = $entityManager->getRepository(Contact::class)->find($id);
+
+        //creation du formulaire
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($contact);
+            $entityManager->flush();
+        }
+
+        return $this->render('admin/contact/modifier.html.twig',[
+            'form' =>$form->createView(),'contact' =>$contact,
+        ]);
+
     }
 
 }
