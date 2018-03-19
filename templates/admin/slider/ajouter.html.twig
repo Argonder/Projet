@@ -32,7 +32,7 @@
                <div class="row imageslider">
                    <p>Image dans la gallerie:</p>
                    {% for slider in product %}
-
+                       
                        <div style="display:inline-block;" class="image_block_modif">
                            <img style="display: block;" src="../../{{ slider.image }}" alt="{{ slider.libelle }}">
                            <form method="post" action="supprimer/{{ slider.id }}" class="col-md-6 col-xs-12">

@@ -1,1 +1,9 @@
 {%  extends 'base-admin.html.twig' %}
+
+{% block body %}
+            <!-- FORMULAIRE -->
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+                <button type="submit" class="btn btn-info" value="publier">Modifier</button>
+            {{ form_end(form) }}
+{% endblock %}

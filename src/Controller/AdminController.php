@@ -7,12 +7,13 @@
  */
 
 namespace App\Controller ;
+use App\Entity\Presentation;
 use App\Entity\Slider;
 use App\Entity\Article;
-
 use App\Entity\User;
-
 use App\Form\ArticleType;
+use App\Form\PresentationType;
+
 
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -27,6 +28,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class AdminController extends Controller
 {
@@ -167,10 +169,8 @@ class AdminController extends Controller
     //Fonction d'insertion d'article
     public function insertarticle(Request $request, Connection $db)
     {
-
-
-
        $articles = $db->fetchAll('SELECT * from article');
+
 
         $article = new Article();
         $form = $this->createForm(ArticleType::class,$article);
@@ -235,25 +235,24 @@ class AdminController extends Controller
         return $this->render('admin/article/modifier.html.twig',[
             'form' =>$form->createView(),'article' =>$article,
         ]);
-
-
     }
 
-
     //Fonction Suppression Article Existant
-
     public function supprimArticle($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $article = $entityManager->getRepository(Article::class)->find($id);
         if ($article->getImage()) {
+<<<<<<< HEAD
              $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
             /*
+=======
+            $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
+            /*-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
+>>>>>>> 7125ac354e6661af01f39915504d92fb481cbd83
             if (file_exists($image)){
                 unlink($image);
             }*/
-
-
         }
         $entityManager->remove($article);
         $entityManager->flush();
@@ -271,7 +270,25 @@ class AdminController extends Controller
 
     public function modifier()
     {
-        return $this ->render('admin/Description/modifier.html.twig');
+        $request = Request::createFromGlobals();
+        $entityManager = $this->getDoctrine()->getManager();
+        //l'id ne doit pas changer, on n'ajoute pas de presentation, on modifie toujours la même.
+        $id= 1;
+        $description = $entityManager->getRepository(Presentation::class)->find($id);
+
+        //creation du formulaire
+        $form = $this->createForm(PresentationType::class, $description);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager->persist($description);
+                $entityManager->flush();
+        }
+
+        return $this->render('admin/description/modifier.html.twig',[
+            'form' =>$form->createView(),'description' =>$description,
+        ]);
+
     }
 
     public function contact()
