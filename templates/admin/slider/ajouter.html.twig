@@ -1,6 +1,7 @@
 {%  extends 'base-admin.html.twig' %}
 
    {% block body %}
+       <div class="container">
            <div class="slider">
                <h3>Vue du Slider</h3>
                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -29,20 +30,20 @@
                <h3>Modifier le Slider</h3>
                <!-- image deja presente dans le slider -->
                <div class="row imageslider">
-                    <p>Image dans la gallerie:</p>
-                    {% for slider in product %}
+                   <p>Image dans la gallerie:</p>
+                   {% for slider in product %}
 
-                        <div style="display:inline-block;" class="image_block_modif row">
-                            <img style="display: block;" src="../../{{ slider.image }}" alt="{{ slider.libelle }}">
-                            <form method="post" action="supprimer/{{ slider.id }}" class="col-sm-6">
-                                <button type="submit" class="fa fa-trash btn-danger btn" name="delete"></button>
-                            </form>
-                            <form method="post" action="activ/{{ slider.id }}" class="col-sm-6">
-                                <button type="submit" name="active" class="btn btn-info"> activer  </button>
-                            </form>
-                        </div>
+                       <div style="display:inline-block;" class="image_block_modif">
+                           <img style="display: block;" src="../../{{ slider.image }}" alt="{{ slider.libelle }}">
+                           <form method="post" action="supprimer/{{ slider.id }}" class="col-md-6 col-xs-12">
+                               <button type="submit" class="fa fa-trash btn-danger btn" name="delete"></button>
+                           </form>
+                           <form method="post" action="activ/{{ slider.id }}" class="col-md-6 col-xs-12">
+                               <button type="submit" name="active" class="btn btn-info"> {% if slider.active == 1 %} désactiver {% elseif slider.active == 0 %} activer {% endif %}</button>
+                           </form>
+                       </div>
 
-                    {% endfor %}
+                   {% endfor %}
 
                </div>
 
