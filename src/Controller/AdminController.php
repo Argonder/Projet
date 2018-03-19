@@ -191,10 +191,13 @@ class AdminController extends Controller
 
                 $entityManager->persist($article);
                 $entityManager->flush();
-            }else {
+            }else  {
+
                 $article->setImage('images/default-image.jpg');
+
                 $entityManager->persist($article);
-                $entityManager->flush();}
+                $entityManager->flush();
+            }
 
         }
 
@@ -244,10 +247,12 @@ class AdminController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $article = $entityManager->getRepository(Article::class)->find($id);
         if ($article->getImage()) {
-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
+             $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
+            /*-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
             if (file_exists($image)){
                 unlink($image);
-            }
+            }*/
+
 
         }
         $entityManager->remove($article);
