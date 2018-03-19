@@ -296,7 +296,7 @@ class AdminController extends Controller
     {
         $request = Request::createFromGlobals();
         $entityManager = $this->getDoctrine()->getManager();
-        //l'id ne doit pas changer, on n'ajoute pas de presentation, on modifie toujours la même.
+        
         $id= 1;
         $contact = $entityManager->getRepository(Contact::class)->find($id);
 

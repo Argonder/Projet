@@ -73,12 +73,25 @@ header .navbar-default {
     height: 250px;
 }
 
+
+.parallax {
+    background-image: url("../images/bgimagec.jpg");
+    height: 150px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* QUI SUIS JE */
 .Presentation{
     margin:0;
-    height:320px;
-    background-color: rgba(221, 216, 216, 0.25);
-    padding: 1px 0;
+    background-color: rgba(62, 62, 62, 0.02);
+    color: #545454;
+}
+
+.parallax .text-center h1 {
+    margin-top: 0;
 }
 
 .Presentation p {
