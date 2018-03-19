@@ -27,6 +27,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+
 class AdminController extends Controller
 {
     //connection BDD
@@ -257,25 +258,33 @@ class AdminController extends Controller
 
     public function modifier(Request $request, Connection $db)
     {
+        /*$entityManager = $this->getDoctrine()->getManager();
+        $conn = $this->$entityManager()->getManager();*/
         $description = $db->fetchAll('SELECT * from presentation');
+       /* $stmt = $conn->prepare($sql);
+
         //creation du formulaire
-        $form = $this->createForm(ArticleType::class, $description);
+        $form = $this->createFormBuilder($sql)
+            ->add('description', TextType::class, [
+                'required'  => true,
+                'attr'      => [
+                    'name'  => 'libelle',
+                    'class' => 'form-control' ,
+                    'placeholder' => 'Presentation'
+                ]
+            ])
+
+            //génère formulaire
+            ->getForm();
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form->get('image')->getData();
-            if($file){
-                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-                $file->move(
-                    '../public/images/',
-                    $fileName);
-                $description->setImage('images/' . $fileName);
-                $entityManager->persist($description);
-                $entityManager->flush();
-            }
+            $stmt->execute();
         }
+*/
         return $this ->render('admin/Description/modifier.html.twig',[
-        'description' =>$description,
+           /* 'form' =>$form->createView(),*/'description' =>$description
     ]);
     }
 

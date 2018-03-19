@@ -39,7 +39,9 @@
                                 <button type="submit" class="fa fa-trash btn-danger btn" name="delete"></button>
                             </form>
                             <form method="post" action="activ/{{ slider.id }}" class="col-sm-6">
-                                <button type="submit" name="active" class="btn btn-info"> activer  </button>
+
+                                <button type="submit" name="active" class="btn btn-info"> {% if slider.active == 1 %} désactiver {% elseif slider.active == 0 %} activer {% endif %}</button>
+
                             </form>
                         </div>
 
