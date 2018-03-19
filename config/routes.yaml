@@ -30,13 +30,12 @@ app_activSlider:
     path: /admin/slider/activ/{id}
     controller: App\Controller\AdminController::activSlider
 
-
 app_addarticle:
   path: /admin/article/ajouter
   controller: App\Controller\AdminController::insertarticle
 
 app_description:
-  path: /admin/description/modifier
+  path: /admin/description/modifier/
   controller: App\Controller\AdminController::modifier
 
 app_addcontact:
