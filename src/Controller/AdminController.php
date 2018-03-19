@@ -7,11 +7,13 @@
  */
 
 namespace App\Controller ;
+use App\Entity\Presentation;
 use App\Entity\Slider;
 use App\Entity\Article;
 use App\Entity\User;
 
 use App\Form\ArticleType;
+use App\Form\PresentationType;
 
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -167,7 +169,10 @@ class AdminController extends Controller
     //Fonction d'insertion d'article
     public function insertarticle(Request $request, Connection $db)
     {
-       $articles = $db->fetchAll('SELECT * from article');
+
+
+
+        $articles = $db->fetchAll('SELECT * from article');
 
         $article = new Article();
         $form = $this->createForm(ArticleType::class,$article);
@@ -188,7 +193,14 @@ class AdminController extends Controller
 
                 $entityManager->persist($article);
                 $entityManager->flush();
+            }else  {
+
+                $article->setImage('images/default-image.jpg');
+
+                $entityManager->persist($article);
+                $entityManager->flush();
             }
+
         }
 
         //retourne la vue
@@ -229,7 +241,6 @@ class AdminController extends Controller
 
     }
 
-
     //Fonction Suppression Article Existant
 
     public function supprimArticle($id)
@@ -237,16 +248,20 @@ class AdminController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $article = $entityManager->getRepository(Article::class)->find($id);
         if ($article->getImage()) {
-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
+            $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
+            /*-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
             if (file_exists($image)){
                 unlink($image);
-            }
+            }*/
+
+
         }
         $entityManager->remove($article);
         $entityManager->flush();
 
         return $this->redirectToRoute('app_addarticle');
     }
+
 
     //Fonction de génération de nom unique pour l'image
     private function generateUniqueFileName()
@@ -256,36 +271,27 @@ class AdminController extends Controller
         return md5(uniqid());
     }
 
-    public function modifier(Request $request, Connection $db)
+    public function modifier()
     {
-        /*$entityManager = $this->getDoctrine()->getManager();
-        $conn = $this->$entityManager()->getManager();*/
-        $description = $db->fetchAll('SELECT * from presentation');
-       /* $stmt = $conn->prepare($sql);
+        $request = Request::createFromGlobals();
+        $entityManager = $this->getDoctrine()->getManager();
+        //l'id ne doit pas changer, on n'ajoute pas de presentation, on modifie toujours la même.
+        $id= 1;
+        $description = $entityManager->getRepository(Presentation::class)->find($id);
 
         //creation du formulaire
-        $form = $this->createFormBuilder($sql)
-            ->add('description', TextType::class, [
-                'required'  => true,
-                'attr'      => [
-                    'name'  => 'libelle',
-                    'class' => 'form-control' ,
-                    'placeholder' => 'Presentation'
-                ]
-            ])
-
-            //génère formulaire
-            ->getForm();
-
+        $form = $this->createForm(PresentationType::class, $description);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $stmt->execute();
+                $entityManager->persist($description);
+                $entityManager->flush();
         }
-*/
-        return $this ->render('admin/Description/modifier.html.twig',[
-           /* 'form' =>$form->createView(),*/'description' =>$description
-    ]);
+
+        return $this->render('admin/description/modifier.html.twig',[
+            'form' =>$form->createView(),'description' =>$description,
+        ]);
+
     }
 
     public function contact()
