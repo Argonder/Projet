@@ -245,13 +245,12 @@ class AdminController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $article = $entityManager->getRepository(Article::class)->find($id);
         if ($article->getImage()) {
-<<<<<<< HEAD
+
              $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
             /*
-=======
             $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
             /*-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
->>>>>>> 7125ac354e6661af01f39915504d92fb481cbd83
+7125ac354e6661af01f39915504d92fb481cbd83
             if (file_exists($image)){
                 unlink($image);
             }*/
