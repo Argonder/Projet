@@ -35,9 +35,13 @@
 
     </div><!-- Fin carousel -->
     <!-- PRESENTATION -->
-    <div class="Presentation text-center"> <h1> Qui suis-je ? </h1>
-        <p> Contenu article </p>
-
+    <div class="Presentation text-center"> <h1> Qui suis-je ?
+        <div class="container">
+        <br>
+        {% for presentation in presentation %}
+            <p>{{ presentation.description }}</p>
+        {% endfor %}
+        </div>
     </div>
     <!-- DERNIER ARTICLE -->
     <div class="container dernierArticles">

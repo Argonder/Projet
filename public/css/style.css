@@ -76,9 +76,13 @@ header .navbar-default {
 /* QUI SUIS JE */
 .Presentation{
     margin:0;
-    height:400px;
+    height:320px;
     background-color: rgba(221, 216, 216, 0.25);
     padding: 1px 0;
+}
+
+.Presentation p {
+    font-size: 18px;
 }
 
 /*ARTICLE*/
