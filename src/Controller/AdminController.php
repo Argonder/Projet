@@ -191,7 +191,11 @@ class AdminController extends Controller
 
                 $entityManager->persist($article);
                 $entityManager->flush();
-            }
+            }else {
+                $article->setImage('images/default-image.jpg');
+                $entityManager->persist($article);
+                $entityManager->flush();}
+
         }
 
         //retourne la vue
@@ -244,6 +248,7 @@ class AdminController extends Controller
             if (file_exists($image)){
                 unlink($image);
             }
+
         }
         $entityManager->remove($article);
         $entityManager->flush();
