@@ -200,6 +200,7 @@ class AdminController extends Controller
                 $entityManager->persist($article);
                 $entityManager->flush();
             }
+            return $this->redirectToRoute('app_addarticle');
 
         }
 
@@ -254,9 +255,10 @@ class AdminController extends Controller
             if (file_exists($image)){
                 unlink($image);
             }*/
+            $entityManager->remove($article);
+            $entityManager->flush();
         }
-        $entityManager->remove($article);
-        $entityManager->flush();
+
 
         return $this->redirectToRoute('app_addarticle');
     }
