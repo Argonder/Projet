@@ -126,6 +126,10 @@ header .navbar-default {
     margin: 0 0 30px 0;
 }
 
+.contact h1{
+    margin-bottom:30px;
+}
+
 .body_contact{
     background-color: #dedede;
 }
