@@ -4,11 +4,10 @@
 <div class="container containerArticle">
 
     <div class="articleP">
-        {{ id }}
     </div>
     <div class=" articleblock text-center">
         {% for article in articles %}
-        <div  class="articleMove col-sm-4">
+        <div id="article-{{ article.id }}" class="articleMove col-sm-4">
             <h3>{{ article.titre_article }}</h3>
             <img class="img-responsive" src="{{ article.image }}" alt="{{ article.titre_article }}">
             <p>{{ article.description }}</p>
@@ -20,13 +19,13 @@
 
 </div>
 
+{% endblock %}
 
-
-
-
-
-
-
-
-
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $( document ).ready(function() {
+            $("#article-{{ id }}").click();
+        });
+    </script>
 {% endblock %}
