@@ -37,7 +37,7 @@ header .navbar-default {
 }
 
 .pull-right li{
-    border-radius: 12px;
+    border-radius: 0px;
 }
 
 .pull-right li:hover{
