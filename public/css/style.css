@@ -477,6 +477,9 @@ footer a:hover{
 }
 
 @media (max-width: 780px){
+    body{
+        margin-top: 30px;
+    }
     /* navbar site*/
     #slider{
     margin-top: 60px ;
@@ -492,6 +495,7 @@ footer a:hover{
         margin-bottom: 10px;
         border-radius: 2px;
         text-align:center;
+        padding: 10px;
     }
     .container .resp {
         width:100%;
@@ -540,6 +544,10 @@ footer a:hover{
         margin-bottom: 10px;
         border-radius: 2px;
         text-align:center;
+    }
+
+    .container .resp ul {
+        padding: 10px;
     }
 
     .adminBody .resp {
