@@ -1,11 +1,3 @@
-
-//HOMEPAGE //
-//cliquer sur les article à la une ouvre la page article
-    $(".article-h").click(function () {
-        window.location.href="articles";
-    });
-//FIN HOMEPAGE//
-
 //FORM CONTACT
 //formulaire de contact show
     $(".form-contact").hide();
