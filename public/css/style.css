@@ -216,7 +216,6 @@ header .navbar-default {
 
 .contact {
     text-align: center;
-    height: 550px;
     padding: 30px 0;
     background-color: #f5f5f5;
     margin: 0 0 30px 0;
@@ -236,7 +235,8 @@ header .navbar-default {
 
 .form-contact .btn-envoi {
     margin: 30px 0;
-    margin-left: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-contact .form-inline {
@@ -333,7 +333,7 @@ footer{
     padding: 50px 0 20px;
     text-transform: uppercase;
     color: #FFFFFF;
-    margin-top: 5%;
+    margin-top: 276px;
 }
 
 footer a{
