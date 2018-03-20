@@ -93,7 +93,6 @@ header .navbar-default {
     border-top: solid 2px rgba(0, 0, 0, 0.24);
     border-bottom: solid 2px rgba(0, 0, 0, 0.24);
     background-image: url("../images/bgimagec.jpg");
-    height: 500px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -102,7 +101,8 @@ header .navbar-default {
 
 /* QUI SUIS JE */
 .Presentation{
-    margin-top:10%;
+    padding-top:5%;
+    padding-bottom:5%;
     background-color: rgba(248, 248, 248, 0.18);
     color: #000000;
 }
