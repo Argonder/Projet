@@ -10,9 +10,11 @@ namespace App\Controller ;
 use App\Entity\Presentation;
 use App\Entity\Slider;
 use App\Entity\Article;
+use App\Entity\Contact;
 use App\Entity\User;
 use App\Form\ArticleType;
 use App\Form\PresentationType;
+use App\Form\ContactType;
 
 
 use Doctrine\DBAL\Connection;
@@ -292,9 +294,6 @@ class AdminController extends Controller
 
     public function contact()
     {
-
-
-
         $request = Request::createFromGlobals();
         $entityManager = $this->getDoctrine()->getManager();
         
@@ -313,8 +312,6 @@ class AdminController extends Controller
         return $this->render('admin/contact/modifier.html.twig',[
             'form' =>$form->createView(),'contact' =>$contact,
         ]);
-
-
     }
 
 }
