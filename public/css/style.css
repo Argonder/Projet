@@ -276,7 +276,8 @@ header .navbar-default {
 
 .articlePrincipale img{
     width:500px;
-    margin-left:27%;
+    margin-left:auto;
+    margin-right:auto;
 }
 .articlePrincipale p{
     margin-left:20%;
