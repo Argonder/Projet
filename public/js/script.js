@@ -101,3 +101,5 @@ $('.carousel').carousel({
 // Appel de la fonction
 $(window).resize(resizePage);
 resizePage();
+
+

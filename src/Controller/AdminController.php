@@ -10,11 +10,9 @@ namespace App\Controller ;
 use App\Entity\Presentation;
 use App\Entity\Slider;
 use App\Entity\Article;
-use App\Entity\Contact;
 use App\Entity\User;
 use App\Form\ArticleType;
 use App\Form\PresentationType;
-use App\Form\ContactType;
 
 
 use Doctrine\DBAL\Connection;
@@ -200,6 +198,7 @@ class AdminController extends Controller
                 $entityManager->persist($article);
                 $entityManager->flush();
             }
+            return $this->redirectToRoute('app_addarticle');
 
         }
 
@@ -250,13 +249,14 @@ class AdminController extends Controller
             /*
             $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
             /*-            $image = $this->getParameter('kernel.project_dir').'/public/'.$article->getImage();
-7125ac354e6661af01f39915504d92fb481cbd83
+
             if (file_exists($image)){
                 unlink($image);
             }*/
+            $entityManager->remove($article);
+            $entityManager->flush();
         }
-        $entityManager->remove($article);
-        $entityManager->flush();
+
 
         return $this->redirectToRoute('app_addarticle');
     }
@@ -294,6 +294,9 @@ class AdminController extends Controller
 
     public function contact()
     {
+
+
+
         $request = Request::createFromGlobals();
         $entityManager = $this->getDoctrine()->getManager();
         
@@ -312,6 +315,7 @@ class AdminController extends Controller
         return $this->render('admin/contact/modifier.html.twig',[
             'form' =>$form->createView(),'contact' =>$contact,
         ]);
+
 
     }
 

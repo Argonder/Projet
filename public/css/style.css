@@ -79,7 +79,7 @@ header .navbar-default {
 }
 
 #carousel-example-generic img {
-    width: 20%;
+    max-width: 20%;
     height: 100%;
     margin-left: 40%;
 }
@@ -172,7 +172,7 @@ header .navbar-default {
 .article-h {
     -webkit-animation-name: bounceInLeft;
     animation-name: bounceInLeft;
-    animation-duration: 6s;
+    animation-duration: 4s;
 }
 
 /*ARTICLE*/
@@ -183,6 +183,15 @@ header .navbar-default {
 .dernierArticles h2{
     text-align:center;
     margin-bottom:30px;
+}
+
+.dernierArticles a {
+    color: rgba(0, 0, 0, 0.75);
+    text-decoration: none;
+}
+
+.dernierArticles a:hover {
+    color: #9e9598;
 }
 
 #article_date select{
@@ -280,6 +289,13 @@ header .navbar-default {
     animation-name: zoomIn;
     animation-duration: 0.5s;
 }
+
+.articleblock :hover {
+    color: #8c8487;
+    transition-duration: 1s;
+    cursor: pointer;
+}
+
 .articleblock img {
     display: block;
     max-width: 50%;
