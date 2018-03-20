@@ -99,6 +99,13 @@ $('.cross').hide();
         }
     }
 
+// CAROUSEL OPTION
+
+$('.carousel').carousel({
+    interval: 5000,
+    pause: null
+});
+
 // Appel de la fonction
     $(window).resize(resizePage);
     resizePage();
