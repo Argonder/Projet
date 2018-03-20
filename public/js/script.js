@@ -106,3 +106,10 @@ function resizePage()
 // Appel de la fonction
 $(window).resize(resizePage);
 resizePage();
+
+// CAROUSEL OPTION
+
+$('.carousel').carousel({
+    interval: 5000,
+    pause: null
+})

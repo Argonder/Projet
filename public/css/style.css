@@ -58,6 +58,21 @@ header .navbar-default {
 /* Accueil */
 
 /* SLIDER */
+
+/* Fleche slider */
+
+.carousel-control.left {
+    background-image: none;
+    background-repeat: repeat-x;
+}
+
+.carousel-control.right {
+    background-image: none;
+    background-repeat: repeat-x;
+}
+
+/* Fin fleche slider */
+
 #carousel-example-generic {
     padding:0;
     margin:0;
