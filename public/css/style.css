@@ -119,6 +119,17 @@ header .navbar-default {
 }
 
 /*Animation */
+@-webkit-keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
 
 @keyframes bounceInLeft {
     from,
@@ -264,16 +275,11 @@ header .navbar-default {
 .articlePrincipale p{
     margin-left:20%;
 }
-
-
-.articleblock h3 {
-    text-align:center;
+.articleMove {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    animation-duration: 0.5s;
 }
-
-.articleblock p {
-
-}
-
 .articleblock img {
     display: block;
     max-width: 50%;
