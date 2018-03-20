@@ -99,7 +99,6 @@ $('.carousel').carousel({
 });
 
 // Appel de la fonction
-<<<<<<< HEAD
 $(window).resize(resizePage);
 resizePage();
 
@@ -109,7 +108,4 @@ $('.carousel').carousel({
     interval: 5000,
     pause: null
 })
-=======
-    $(window).resize(resizePage);
-    resizePage();
->>>>>>> Leslie
+
