@@ -35,13 +35,23 @@
 
     </div><!-- Fin carousel -->
     <!-- PRESENTATION -->
-    <div class="Presentation text-center"> <h1> Qui suis-je ?</h1>
-        <div class="container">
-        <br>
-        {% for presentation in presentation %}
-            <p>{{ presentation.description }}</p>
-        {% endfor %}
+
+    <div id="parallax">
+        <div class="parallax"></div>
+        <div class="parallax">
+
+            <div class="Presentation text-center">
+                <h1> Qui suis-je ? </h1>
+                <div class="container">
+                <br>
+                {% for presentation in presentation %}
+                    <p>{{ presentation.description }}</p>
+                {% endfor %}
+                </div>
+            </div>
+
         </div>
+        <div class="parallax"></div>
     </div>
     <!-- DERNIER ARTICLE -->
     <div class="container dernierArticles">
@@ -55,9 +65,6 @@
                 <p>{{ article.description }}</p></a>
             </div>
             {% endfor %}
-
         </div>
     </div>
-
-
 {% endblock %}

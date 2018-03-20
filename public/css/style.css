@@ -85,19 +85,94 @@ header .navbar-default {
 }
 
 .carousel-inner {
-    height: 250px;
+    height: 400px;
+}
+
+/* PARALLAX */
+#parallax {
+    border-top: solid 2px rgba(0, 0, 0, 0.24);
+    border-bottom: solid 2px rgba(0, 0, 0, 0.24);
+}
+
+.parallax {
+    background-image: url("../images/bgimagec.jpg");
+    height: 170px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* QUI SUIS JE */
 .Presentation{
     margin:0;
-    height:320px;
-    background-color: rgba(221, 216, 216, 0.25);
-    padding: 1px 0;
+    background-color: rgba(248, 248, 248, 0.18);
+    color: #000000;
+}
+
+.parallax .text-center h1 {
+    margin-top: 0;
 }
 
 .Presentation p {
     font-size: 18px;
+}
+
+/*Animation */
+@-webkit-keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceInLeft {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.article-h {
+    -webkit-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+    animation-duration: 6s;
 }
 
 /*ARTICLE*/
@@ -200,16 +275,11 @@ header .navbar-default {
 .articlePrincipale p{
     margin-left:20%;
 }
-
-
-.articleblock h3 {
-    text-align:center;
+.articleMove {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    animation-duration: 0.5s;
 }
-
-.articleblock p {
-
-}
-
 .articleblock img {
     display: block;
     max-width: 50%;
