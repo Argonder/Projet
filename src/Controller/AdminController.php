@@ -292,7 +292,29 @@ class AdminController extends Controller
 
     public function contact()
     {
-        return $this ->render('admin/contact/modifier.html.twig');
+
+
+
+        $request = Request::createFromGlobals();
+        $entityManager = $this->getDoctrine()->getManager();
+        
+        $id= 1;
+        $contact = $entityManager->getRepository(Contact::class)->find($id);
+
+        //creation du formulaire
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($contact);
+            $entityManager->flush();
+        }
+
+        return $this->render('admin/contact/modifier.html.twig',[
+            'form' =>$form->createView(),'contact' =>$contact,
+        ]);
+
+
     }
 
 }

@@ -23,25 +23,33 @@
             </div>
 
             <!-- Control -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+           <!-- <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Précédent</span>
             </a>
             <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Suivant</span>
-            </a>
+            </a>-->
         </div>
 
     </div><!-- Fin carousel -->
     <!-- PRESENTATION -->
-    <div class="Presentation text-center"> <h1> Qui suis-je ?
-        <div class="container">
-        <br>
-        {% for presentation in presentation %}
-            <p>{{ presentation.description }}</p>
-        {% endfor %}
+    <div id="parallax">
+        <div class="parallax"></div>
+        <div class="parallax">
+
+            <div class="Presentation text-center">
+                <h1> Qui suis-je ? </h1>
+                <div class="container">
+                <br>
+                {% for presentation in presentation %}
+                    <p>{{ presentation.description }}</p>
+                {% endfor %}
+                </div>
+            </div>
         </div>
+        <div class="parallax"></div>
     </div>
     <!-- DERNIER ARTICLE -->
     <div class="container dernierArticles">
@@ -54,9 +62,6 @@
                 <p>{{ article.description }}</p>
             </div>
             {% endfor %}
-
         </div>
     </div>
-
-
 {% endblock %}
