@@ -17,6 +17,15 @@
             $("#email").css("border-color", "red");
         }
         else {
+
+                $.ajax({
+                    url : '/contact',
+                    type : 'POST', // Le type de la requête HTTP, ici devenu POST
+                    data : 'email=' + $("#email").val() + '&message=' + $("#message").val() + '&name=' + $("#nom").val() , // On fait passer nos variables, exactement comme en GET, au script more_com.php
+                    dataType : 'html'
+                });
+
+
             $(".form-contact").replaceWith("<p>Votre message a été envoyé.</p>");
         }
     });
