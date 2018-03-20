@@ -1,8 +1,5 @@
 //HOMEPAGE //
 //cliquer sur les article à la une ouvre la page article
-$(".article-h").click( function(){
-    window.open('articles');
-});
 //FIN HOMEPAGE//
 
 //FORM CONTACT

@@ -11,14 +11,15 @@ namespace App\Controller;
 
 use Doctrine\DBAL\Connection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ArticlesController extends Controller
 {
-    public function article(Connection $db) {
+    public function article(Request $resquest, Connection $db) {
 
-        /*dump($db->fetchAll('SELECT * from article'));*/
+        $id = $resquest->get('id');
         $articles = $db->fetchAll('SELECT * from article');
-        return $this->render('articles.html.twig', ['articles' => $articles
+        return $this->render('articles.html.twig', ['articles' => $articles, 'id' => $id
         ]);
 
     }

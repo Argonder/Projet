@@ -35,7 +35,7 @@
 
     </div><!-- Fin carousel -->
     <!-- PRESENTATION -->
-    <div class="Presentation text-center"> <h1> Qui suis-je ?
+    <div class="Presentation text-center"> <h1> Qui suis-je ?</h1>
         <div class="container">
         <br>
         {% for presentation in presentation %}
@@ -49,9 +49,10 @@
             <h2>Derniers Articles</h2>
             {% for article in articles %}
             <div class="col-md-3 col-sm-6 text-center article-h">
+                <a href="articles?id={{ article.id }}">
                 <h2>{{ article.titre_article }}</h2>
                 <img src="{{ article.image }}" alt="">
-                <p>{{ article.description }}</p>
+                <p>{{ article.description }}</p></a>
             </div>
             {% endfor %}
 
