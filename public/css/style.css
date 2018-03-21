@@ -174,8 +174,8 @@ header .navbar-default {
 
 /*ARTICLE*/
 
-#article-10{
-    margin-bottom: 70px;
+.articleP{
+    margin-bottom: 80px;
 }
 
 .article-h img {
