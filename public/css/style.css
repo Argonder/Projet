@@ -173,6 +173,11 @@ header .navbar-default {
 }
 
 /*ARTICLE*/
+
+#article-10{
+    margin-bottom: 70px;
+}
+
 .article-h img {
     height: 150px;
 }
@@ -290,7 +295,7 @@ header .navbar-default {
     margin-right:auto;
 }
 .articlePrincipale p{
-    margin-left:20%;
+    text-align: center;
 }
 .articleMove {
     -webkit-animation-name: zoomIn;

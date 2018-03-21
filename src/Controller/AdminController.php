@@ -230,9 +230,10 @@ class AdminController extends Controller
                     '../public/images/',
                     $fileName);
                 $article->setImage('images/' . $fileName);
-                $entityManager->persist($article);
-                $entityManager->flush();
+
             }
+            $entityManager->persist($article);
+            $entityManager->flush();
         }
 
         return $this->render('admin/article/modifier.html.twig',[
